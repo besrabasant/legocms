@@ -1,0 +1,19 @@
+.user-profile {
+  @apply px-8 align-middle text-center flex items-center justify-end;
+
+  min-width: 150px;
+
+  &__name {
+    @apply px-6;
+
+    span {
+      @apply font-medium;
+    }
+  }
+
+  &__logout {
+    &:hover {
+      @apply no-underline;
+    }
+  }
+}

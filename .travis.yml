@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 7.3
+
+cache:
+    directories:
+        - vendor
+
+addons:
+  chrome: stable
+
+install:
+    - rm -rf vendor/orchestra/testbench-dusk
+    - travis_retry composer install --no-interaction --no-suggest
+    
+before_script:
+    - php vendor/orchestra/testbench-dusk/create-sqlite-db
+    - vendor/bin/dusk-updater detect update -q -y
+
+script:
+    - vendor/bin/phpunit tests/Browser/

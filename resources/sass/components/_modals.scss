@@ -1,0 +1,40 @@
+.v--modal-box {
+  @apply rounded-md;
+}
+
+.modal {
+  @apply h-full flex flex-col justify-between px-6 py-2;
+
+  &__header {
+    @apply pt-4 pb-3;
+  }
+
+  &__title {
+    @apply text-xl font-medium text-gray-700;
+  }
+
+  &__body {
+    @apply pt-3 pb-4 text-gray-600;
+  }
+
+  &__footer {
+    @apply flex justify-end items-center py-4;
+  }
+
+  &__btn {
+    @apply px-6 py-2 font-bold mx-2 rounded;
+
+    &:active,
+    &:focus {
+      @apply outline-none;
+    }
+
+    &--secondary {
+      @apply bg-gray-200;
+    }
+
+    &--primary {
+      @apply bg-red-500 text-white;
+    }
+  }
+}

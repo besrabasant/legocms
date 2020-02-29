@@ -1,0 +1,66 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  @apply flex justify-center;
+
+  &__container {
+    @apply w-full shadow-md rounded-md py-4 px-6 bg-white;
+
+    max-width: theme('legocms.page.width');
+  }
+  
+  &__header {
+    @apply flex justify-between items-center;
+  }
+
+  &__title {
+    @apply text-3xl font-bold;
+  }
+
+  &__actions {
+  }
+
+  &__action {
+    @apply flex;
+
+    &:hover {
+      @apply no-underline;
+    }
+
+    .symbol {
+      @apply mr-1 fill-current;    
+    }
+
+    &--create {
+    }
+  }
+}
+
+.app-env {
+  &--production,
+  &--local,
+  &--development {
+
+    .page {
+      &__container {
+        opacity: 0;
+      }
+  
+      &--loaded {
+        .page__container {
+          animation: fadeIn 150ms ease-out 150ms forwards;
+        }
+      }
+    }
+  }
+}
+

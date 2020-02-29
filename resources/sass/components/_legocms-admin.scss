@@ -1,0 +1,39 @@
+.legocms {
+  &--admin {
+    @apply absolute w-full h-full flex flex-wrap justify-center align-middle;
+    background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' version='1.1' viewBox='0 0 13.229 13.229' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(206.38 -163.79)'%3E%3Crect x='-199.89' y='170.01' width='.52917' height='.52917' rx='0' ry='.26458' fill='%23808080' opacity='.99824'/%3E%3C/g%3E%3C/svg%3E%0A");
+  }
+
+  &__logo {
+    @apply justify-center py-3;
+    width: calc( theme('legocms.sidebar.width') / 2 - 15px);
+  }
+
+  &__app-name {
+    @apply text-lg;
+  }
+
+  &__sidebar {
+    @apply absolute left-0 bottom-0 flex;
+
+    top: theme('legocms.header.height');
+    width: theme('legocms.sidebar.width');
+  }
+
+  &__header {
+    height: theme('legocms.header.height');
+
+    @apply w-full relative top-0 left-0 right-0;
+  }
+
+  &__main {
+    @apply absolute right-0 bottom-0;
+
+    top: theme('legocms.header.height');
+    left: theme('legocms.sidebar.width');
+  }
+
+  &__footer {
+    @apply absolute bottom-0 right-0 left-0;
+  } 
+}

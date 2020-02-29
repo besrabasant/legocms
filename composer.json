@@ -1,0 +1,47 @@
+{
+    "name": "besrabasant/legocms",
+    "require": {
+        "php": "^7.2",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "laravel/framework": "^6.0 || ^7.0",
+        "laravel/ui": "^2.0",
+        "barryvdh/laravel-debugbar": "^3.2",
+        "myclabs/php-enum": "dev-master",
+        "guzzlehttp/guzzle": "^6.3.1",
+        "nothingworks/blade-svg": "dev-master",
+        "lavary/laravel-menu": "dev-master",
+        "astrotomic/laravel-translatable": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5 || ^9.0",
+        "orchestra/testbench": "^5.0",
+        "mockery/mockery": "dev-master",
+        "codedungeon/phpunit-result-printer": "dev-master",
+        "orchestra/testbench-dusk": "^5.0",
+        "nunomaduro/collision": "^4.1.3",
+        "orchestra/testbench-browser-kit": "^5.0@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "LegoCMS\\": "src/"
+        },
+        "classmap": [
+            "database/factories"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LegoCMS\\Tests\\": "tests/",
+            "DemoSet1\\": "tests/Fixtures/demo_set_1/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LegoCMS\\Providers\\LegoCMSServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
+}

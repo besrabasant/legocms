@@ -1,0 +1,151 @@
+.form {
+  $form: &;
+
+  @apply flex justify-center mb-12;
+
+  &__container {
+    @apply flex flex-wrap w-full;
+  }
+
+  &__fields-container {
+    @apply flex-1;
+  }
+
+  &__actions-container {
+      @apply w-full;
+
+      max-width: 300px;
+  }
+
+
+  &__translation {
+    @apply w-full flex flex-col items-end;
+  }
+
+  &__translation-selector,
+  &__translation-status {
+    @apply w-full flex justify-end;
+  }
+
+  &__translation-status {
+    @apply mt-3 mr-2;
+  }
+
+  &__translation-status-item {
+    @apply mb-3 flex;
+  }
+
+  &__translation-label {
+    @apply flex-1;
+  }
+
+  &__translation-btn {
+    @apply w-full text-center border-b border-gray-500 font-medium cursor-pointer mr-2;
+    
+    padding: 2px 0;
+    max-width: 45px;
+    border-bottom-width: 4px;
+
+    &--active {
+      @apply border-blue-600 bg-blue-100;
+    }
+  }
+
+  &__field-group {
+
+  }
+
+  &__fieldset {
+    
+  }
+
+  &__field {
+    @apply px-4 w-full py-1 flex flex-wrap items-start relative mx-auto;
+
+    max-width: 600px;
+
+    &--actions {
+      @apply  bg-gray-100 mt-3 py-2 flex justify-center;
+    }
+  }
+
+  &__field-locale {
+    @apply text-xs bg-gray-400 text-gray-700 p-1 mx-1 rounded-sm;
+  }
+
+  &__label,
+  &__help {
+    @apply w-full;
+  }
+
+  &__label {
+    @apply pt-2 mb-3 font-medium text-sm text-gray-700;
+  }
+
+  &__help {
+    @apply mt-1 text-gray-500 italic font-normal block;
+  }
+
+  &__input,
+  &__errors {
+    @apply w-full;
+  }
+
+  &__help,
+  &__errors {
+    @apply text-xs;
+  }
+
+  &__input {
+    @apply border-2 border-gray-300 px-4 py-2 rounded text-sm  appearance-none transition;
+
+    &:focus {
+      @apply outline-none border-blue-300 shadow-inner;
+    }
+
+    &--select {
+      @apply bg-white;
+
+      padding-top: 0.6rem;
+      padding-bottom: 0.6rem;
+    }
+
+    &--textarea {
+      min-height: 100px;
+    }
+  }
+
+  &__errors {
+    @apply mt-2 px-1 text-red-500;
+
+    span {
+      @apply block;
+    }
+  }
+
+  &__btn {
+    @apply px-6 py-2 mx-3 text-sm font-medium rounded bg-gray-100 cursor-pointer relative transition;
+
+    &:hover {
+      @apply no-underline;
+    }
+
+    &--primary {
+      @apply bg-blue-600 text-white;
+
+      &:hover {
+        @apply bg-blue-700;
+      }
+    }
+
+    &--secondary {
+      @apply bg-gray-300;
+
+      &:hover {
+        @apply bg-gray-400;
+      }
+    }
+  }
+
+ 
+}

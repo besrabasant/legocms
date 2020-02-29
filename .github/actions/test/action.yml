@@ -1,0 +1,5 @@
+name: 'Test'
+description: 'Runs an Laravel test' 
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

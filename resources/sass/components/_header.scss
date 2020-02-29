@@ -1,0 +1,13 @@
+.header {
+  @apply px-4 flex justify-between items-center relative;
+
+  &__user-profile {
+    @apply relative right-0 top-0 bottom-0;
+  }
+
+  &__nav,
+  &__search,
+  &__quick-actions {
+    @apply flex-1;
+  }
+}

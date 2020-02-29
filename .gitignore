@@ -1,0 +1,17 @@
+composer.phar
+vendor
+.idea
+.vscode
+node_modules
+dist
+.php_cs.cache
+
+!resources/vendor
+
+tests/Browser/console
+tests/Browser/screenshots
+tests/Coverage
+
+Dockerfile
+!.github/actions/test/Dockerfile
+.dockerignore

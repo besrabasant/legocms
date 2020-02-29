@@ -1,0 +1,40 @@
+.global-nav {
+  $global-nav: &;
+
+  @apply w-full;
+  @apply h-full;
+  @apply border-r;
+
+  max-width: calc(theme('legocms.sidebar.width') /2);
+
+  &__menu {
+    @apply py-4 flex flex-col;
+  }
+
+  &__item {
+    @apply px-6;
+
+    &--active {
+        @apply bg-blue-200 text-black font-medium;
+    }
+  }
+
+  &__link {
+    @apply block py-1 my-1 text-gray-700 text-sm;
+
+    &:hover {
+      @apply no-underline;
+    }
+  }
+
+  &__separator {
+    @apply my-4 relative;
+
+    &:before {
+      @apply absolute bg-gray-300 left-0 right-0 mx-4;
+
+      content: "";
+      height: 1px;
+    }
+  }
+}

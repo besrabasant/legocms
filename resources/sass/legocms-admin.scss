@@ -1,0 +1,24 @@
+@import "common/global";
+
+body {
+  @apply text-gray-700;
+}
+
+@import "generated/symbols";
+
+@import "components/accordion";
+@import "components/legocms";
+@import "components/legocms-admin";
+@import "components/header";
+@import "components/main";
+@import "components/footer";
+@import "components/global-search";
+@import "components/form";
+@import "components/page";
+@import "components/modals";
+@import "components/user-profile";
+@import "components/listings";
+
+@import "components/navigation/header-nav";
+@import "components/navigation/global-nav";
+@import "components/navigation/secondary-nav";

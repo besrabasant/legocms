@@ -1,0 +1,12 @@
+.global-search {
+    @apply flex justify-center items-center h-full;
+
+    &__input {
+        @apply p-3 rounded border shadow-inner shadow-md;
+        width: 500px;
+
+        &:focus {
+            @apply outline-none shadow-lg;
+        }
+    }
+}

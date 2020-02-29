@@ -1,0 +1,71 @@
+.listings {
+  $listings: &;
+
+  @apply my-4 w-full table-auto text-sm;
+
+  &__header {
+    
+  }
+
+  &__body {
+
+  }
+
+  &__row {
+    
+    &--head {
+      @apply border-b-4 border-gray-400;
+
+      #{$listings}__column-item {
+        @apply font-bold;
+      }
+    }
+
+    &--body {
+
+      &:hover {
+        @apply bg-gray-100 transition;
+      }
+
+    }
+  }
+
+  &__column-item {
+    @apply p-4;
+
+    &--row-actions {
+      @apply text-right;
+      width: 160px;
+    }
+  }
+
+  &__translations {
+
+  }
+
+  &__translation {
+    @apply bg-gray-300 text-gray-700 font-medium w-full mx-1 p-1 text-center inline-block rounded-sm;
+
+    max-width: 32px;
+  }
+}
+
+.empty-records {
+  @apply font-medium text-center text-gray-400 text-4xl pt-10 pb-5;
+}
+
+.row-action {
+  @apply pl-4 font-medium no-underline;
+
+  &:hover {
+    @apply no-underline;
+  }
+
+  &--edit {
+    @apply text-blue-800;
+  }
+
+  &--delete {
+    @apply text-red-700;
+  }
+}

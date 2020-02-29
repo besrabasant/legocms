@@ -1,0 +1,37 @@
+@import "~tailwindcss/base";
+
+// @import "~tailwindcss/components";
+
+// @import "~tailwindcss/utilities";
+
+@import "functions";
+@import "mixins";
+@import "fonts";
+
+html, body {
+  @apply min-h-screen h-auto;
+  font-family: theme('fontFamily.sans');
+}
+
+a {
+  &:hover {
+    @apply underline;
+  }
+}
+
+.figure  {
+  @apply w-full h-full overflow-hidden m-0;
+
+  &__img {
+    @apply w-full h-full object-cover object-center;
+  }
+}
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: theme('colors.blue.500');
+}
+
+.transition {
+  @apply transition-all ease-out duration-300;
+}

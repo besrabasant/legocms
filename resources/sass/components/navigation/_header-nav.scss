@@ -1,0 +1,11 @@
+.header-nav {
+    @apply h-full px-4 py-3 flex justify-start items-center;
+
+    &__item {
+        @apply cursor-pointer font-medium px-5;
+
+        &:hover {
+            @apply no-underline; 
+        }
+    }
+}
