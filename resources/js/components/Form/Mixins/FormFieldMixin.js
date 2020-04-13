@@ -39,13 +39,14 @@ const FormFieldMixin  = {
             return this.$root.setFieldValue(this.$props.name, this.value);
         },
         updateFieldValue() {
-            this.value = this.fieldValue
+            this.value = this.fieldValue;
         }
     },
     computed: {
         errors() {
-            if (LEGOCMS.FORMS.errors && LEGOCMS.FORMS.errors.hasOwnProperty(this.$props.name)) {
-                return LEGOCMS.FORMS.errors[this.$props.name];
+            let errorFieldName = this.$props.name.replace(']', '').replace('[', '.');
+            if (LEGOCMS.FORMS.errors && LEGOCMS.FORMS.errors.hasOwnProperty(errorFieldName)) {
+                return LEGOCMS.FORMS.errors[errorFieldName];
             }
             return false;
         },

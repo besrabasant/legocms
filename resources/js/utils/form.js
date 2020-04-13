@@ -1,7 +1,12 @@
 export function serializeFieldValue(field, value) {
+    if(value == null) {
+        value = "";
+    }
+
     if(typeof value === 'boolean') {
         value = +value;
     }
+
     return `${encodeURIComponent(field)}=${encodeURIComponent(value)}`;
 }
 

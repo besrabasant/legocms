@@ -1,4 +1,4 @@
-            import FormError from '../FormError';
+import FormError from '../FormError';
 
 function install(Vue, options) {
 
@@ -6,7 +6,7 @@ function install(Vue, options) {
     Vue.formErrors = {};
     Vue.formErrors.errorBag = [];
 
-    Vue.component('legocms-form-error', FormError)
+    Vue.component('legocms-form-error', FormError);
 
     //
     // // 2. add a global asset
@@ -25,7 +25,7 @@ function install(Vue, options) {
 
     // 4. add an instance method
     Vue.prototype.$addErrors = function (errors) {
-        Vue.formErrors.errorBag.concat(errors)
+        Vue.formErrors.errorBag.concat(errors);
     };
 };
 
