@@ -48,6 +48,20 @@
 
     max-width: 32px;
   }
+
+  &__notification {
+    @apply px-5 py-3;
+
+    .notification-title,
+    .notification-content {
+      @apply text-white;
+    }
+    
+    &.success {
+      @apply bg-green-400;
+    }
+  }
+
 }
 
 .empty-records {

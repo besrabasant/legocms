@@ -3,7 +3,7 @@ import axios from 'axios';
 import Vue from 'vue';
 import TurbolinksAdapter from 'vue-turbolinks';
 import VModal from 'vue-js-modal';
-import Fragment from 'vue-fragment';
+import Notifications from 'vue-notification';
 
 import Common from "./components/common";
 import Listings from "./components/Listings";
@@ -11,7 +11,7 @@ import Form from "./components/Form";
 
 Vue.use(TurbolinksAdapter);
 Vue.use(VModal, {dynamic: true});
-Vue.use(Fragment.Plugin);
+Vue.use(Notifications);
 
 window.Axios = axios;
 window.Vue = Vue;

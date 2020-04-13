@@ -3,10 +3,11 @@ $model = ${$module_singular};
 if($model->isTranslatable([$name])) {
     $value = [];
     foreach(\getLocales() as $locale) {
-        $value[$locale] = \optional($model->translate($locale))->{$name};
+        $value[$locale] = \old("{$locale}[{$name}]") ?? \optional($model->translate($locale))->{$name};
     }
 } else {
-    $value = $model->{$name};
+    $value = \old($name) ?? $model->{$name};
 }
+
 $forms->setConfig('fieldValues.'.$name, $value);    
 @endphp

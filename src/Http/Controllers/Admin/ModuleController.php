@@ -24,7 +24,9 @@ use LegoCMS\Support\Facades\LegoCMS;
  */
 abstract class ModuleController extends Controller
 {
-    use Behaviours\ProvidesReturnRoutes, Behaviours\HandlesRevisions;
+    use Behaviours\ProvidesReturnRoutes,
+        Behaviours\HandlesRevisions,
+        Behaviours\HandlesFlashNotifications;
 
     /**
      * $namespace
@@ -350,6 +352,8 @@ abstract class ModuleController extends Controller
         $model->fill($data);
 
         $model->save();
+
+        $this->notifySuccess($this->resolveModelNameFromController() . " updated successfully.");
 
         return $this->returnToIndexRoute();
     }

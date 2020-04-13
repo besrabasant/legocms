@@ -1,5 +1,5 @@
 <template>
-    <div class="form__field">
+    <div class="form__field" :class="{'form__field--has-errors': errors }">
         <label :for="$parent.name" class="form__label" :dusk="dusk && `${dusk}__label`">
             {{$parent.label}} :
             <span class="form__field-locale" v-if="locale">{{locale}}</span>

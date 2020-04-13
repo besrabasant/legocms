@@ -11,6 +11,9 @@ $listingsConfig = [
     ],
 ];
 
+if(\request()->session()->has('listingsNotifications')) {
+    $listingsConfig['notification'] = \request()->session()->get('listingsNotifications');
+}
 @endphp
 
 @push('admin__footer--js')
@@ -65,6 +68,7 @@ $listingsConfig = [
             </div>
 
         </div>
-        <legocms-delete-confirm />
+        <legocms-delete-confirm></legocms-delete-confirm>
+        <legocms-listings-notification></legocms-listings-notification>
     </div>
 @endsection

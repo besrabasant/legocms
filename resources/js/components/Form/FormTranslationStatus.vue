@@ -8,9 +8,9 @@
                 </span>
                 <toggle-button @change="setTranslationActiveValue(t.value)"
                     :value="getPublishedStatus(t.value)"
-                    :width="75"
-                    :height="26"
-                    :labels="{checked:'Active', unchecked: 'Inactive'}"
+                    :width="40"
+                    :height="20"
+                    :margin="5"
                     >
                 </toggle-button>
             </div>

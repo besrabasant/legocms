@@ -43,6 +43,12 @@
     &--create {
     }
   }
+
+  &--listings {
+    .vue-notification-group {
+      @apply mr-6 pb-6;
+    }
+  }
 }
 
 .app-env {
