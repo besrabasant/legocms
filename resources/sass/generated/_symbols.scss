@@ -1,5 +1,15 @@
+$symbol-check: ".symbol--check";
+#{$symbol-check} {
+    width: 32px;
+    height: 32px;
+}
 $symbol-create: ".symbol--create";
 #{$symbol-create} {
+    width: 24px;
+    height: 24px;
+}
+$symbol-error: ".symbol--error";
+#{$symbol-error} {
     width: 24px;
     height: 24px;
 }
@@ -8,8 +18,18 @@ $symbol-expand: ".symbol--expand";
     width: 24px;
     height: 24px;
 }
+$symbol-info: ".symbol--info";
+#{$symbol-info} {
+    width: 24px;
+    height: 24px;
+}
 $symbol-legocms: ".symbol--legocms";
 #{$symbol-legocms} {
     width: 100px;
     height: 23px;
+}
+$symbol-warning: ".symbol--warning";
+#{$symbol-warning} {
+    width: 24px;
+    height: 24px;
 }

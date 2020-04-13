@@ -9,22 +9,9 @@
 
 <script>
 import serialize from "../../utils/serialize";
+import { submitForm } from "../../utils/api";
+import { serializeFormData } from "../../utils/form";
 import FormTranslatableTabs from"./FormTranslatableTabs"
-
-function prepareRequestHeaders() {
-    return {
-        'Accept': 'text/html, application/xhtml+xml',
-        'Turbolinks-Referrer': `${window.location.href}`,
-        'Content-Type': 'application/x-www-form-urlencoded'
-    }
-}
-
-function serializeFieldValue(field, value) {
-    if(typeof value === 'boolean') {
-        value = +value
-    }
-    return `${encodeURIComponent(field)}=${encodeURIComponent(value)}`
-}
 
 export default {
     components: {
@@ -43,27 +30,6 @@ export default {
         this.$on('submitForm', this.submitForm)
     },
     methods: {
-        serializeForm() {
-            let data = this.getFormData()
-            let formArr = []
-            
-            for(let field in data) {
-                let value = data[field]
-
-                if(typeof value === 'object') {
-                    for(let locale in value) {
-                        let val = value[locale],
-                        localefield = `${locale}[${field}]`
-
-                        formArr.push(serializeFieldValue(localefield, val))
-                    }
-                } else {
-                    formArr.push(serializeFieldValue(field, value))
-                }
-            }
-
-            return formArr.join('&')
-        },
         debugFormData() {
             let data = this.getFormData()
             dd('Form data: ', data)
@@ -73,38 +39,12 @@ export default {
         },
         async submitForm() {
             let $form = this.$refs.form;
-            let formData = this.serializeForm();
+            let formData = serializeFormData(this.getFormData());
 
             this.debugFormData()
 
-            Turbolinks.controller.adapter.showProgressBarAfterDelay();
-
-            try {
-                let response = await fetch($form.getAttribute('action'), {
-                    method: 'POST',
-                    headers: prepareRequestHeaders(),
-                    body: formData
-                });
-
-                this.handleResponse(response)
-            } catch (error) {
-                console.log(error)
-            } finally {
-                Turbolinks.controller.adapter.hideProgressBar();
-            }
+            await submitForm($form.getAttribute('action'), formData)
         },
-        async handleResponse(response) {
-            let responseHtml = await response.text();
-            let location = response.headers.get('Turbolinks-Location');
-            let snapshot = Turbolinks.Snapshot.wrap(responseHtml);
-
-            if (!location) {
-                location = window.location.href;
-            }
-
-            Turbolinks.controller.cache.put(location, snapshot);
-            Turbolinks.visit(location, {action: 'restore'});
-        }
     }
 }
 </script>

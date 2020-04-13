@@ -37,6 +37,7 @@ $forms->setConfig('translations', \getLanguagesForVueStore($model->toArray(), $m
                     :handles-translations="true"
                     @endif
                     >
+
                     <legocms-form-input-hidden name="_token"> </legocms-form-input-hidden>
                     @php $forms->setConfig('fieldValues._token', \csrf_token());  @endphp
 
@@ -65,8 +66,8 @@ $forms->setConfig('translations', \getLanguagesForVueStore($model->toArray(), $m
                         @if($model->isTranslatable())
                         <legocms-form-translation-status></legocms-form-translation-status>
                         @endif
-                        
-                        <div class="form__field form__field--actions">
+
+                        <div class="form__actions">
                             <a class="form__btn form__btn--secondary" href="{{\moduleRoute($module)}}">
                                 {{ $forms->getFormActionLabel('cancel') }}
                             </a>

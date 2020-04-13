@@ -3,24 +3,33 @@
 </template>
 
 <script>
-    export default {
-        props: ["resourceId", "url", "label"],
-        computed: {
-            elementId() {
-                return `deleteUser__${this.resourceId}`
-            }
+import { submitForm } from "../../utils/api";
+import { serializeFormData } from "../../utils/form";
+
+export default {
+    props: {
+        resourceId: [String, Number], 
+        url: String,
+        label: String,
+    },
+    computed: {
+        elementId() {
+            return `deleteUser__${this.resourceId}`
+        }
+    },
+    methods: {
+        showDeleteConfirmation() {
+            this.$modal.show('delete-confirmation', {
+                confirmCb: this.sendDeleteRequest
+            });
         },
-        methods: {
-            showDeleteConfirmation() {
-                this.$modal.show('delete-confirmation', {
-                    confirmCb: this.sendDeleteRequest
-                });
-            },
-            async sendDeleteRequest() {
-                let response = await Axios.post(this.url, {'_method': "DELETE"});
-                await this.$modal.hide('delete-confirmation');
-                Turbolinks.visit(response.headers['turbolinks-location']);
-            }
+        async sendDeleteRequest() {
+            let formData = {
+                '_token': LEGOCMS.LISTINGS._token,
+                '_method': 'DELETE'
+            };
+            await submitForm(this.url, serializeFormData(formData));
         }
     }
+}
 </script>

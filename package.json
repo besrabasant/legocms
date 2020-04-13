@@ -7,13 +7,19 @@
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "vue-serve": "vue-cli-service serve",
+    "vue-watch": "vue-cli-service build --watch",
+    "vue-build": "vue-cli-service build",
+    "vue-lint": "vue-cli-service lint frontend",
+    "vue-prod": "npm run build"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.2.3",
     "axios": "^0.19",
     "browser-sync": "^2.26.7",
     "browser-sync-webpack-plugin": "^2.0.1",
+    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.1",
     "laravel-mix": "^5.0.1",
     "lodash": "^4.17.13",
@@ -23,7 +29,9 @@
     "sass-loader": "^8.0.0",
     "svg-spritemap-webpack-plugin": "^3.5.5",
     "svgo-loader": "^2.2.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-assets-manifest": "^3.1.1",
+    "webpack-notifier": "^1.8.0"
   },
   "dependencies": {
     "consola": "^2.11.3",

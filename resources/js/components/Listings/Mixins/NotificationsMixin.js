@@ -12,8 +12,8 @@ export default {
     mounted() {
 
         if(LEGOCMS.LISTINGS.notification) {
-            let {type, title, message} = LEGOCMS.LISTINGS.notification;
-            this.notify(title, message, type);
+            let {title, message, type} = LEGOCMS.LISTINGS.notification;
+            this.notify(title,message, type);
         }
     }
 }

@@ -272,6 +272,8 @@ abstract class ModuleController extends Controller
 
         $model->save();
 
+        $this->notifySuccess($this->resolveModelNameFromController() . " created successfully.");
+
         return $this->returnToIndexRoute();
     }
 
@@ -368,6 +370,8 @@ abstract class ModuleController extends Controller
     public function destroy($id)
     {
         $this->getModelName()::destroy($id);
+
+        $this->notifySuccess($this->resolveModelNameFromController() . " deleted successfully.");
 
         return $this->returnToIndexRoute();
     }

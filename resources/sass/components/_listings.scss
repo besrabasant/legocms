@@ -48,20 +48,41 @@
 
     max-width: 32px;
   }
+}
 
-  &__notification {
-    @apply px-5 py-3;
 
-    .notification-title,
-    .notification-content {
-      @apply text-white;
+.listings-notification {
+    @apply px-5 py-3 flex items-center;
+    @apply text-white cursor-pointer;
+
+    &__icon {
+      @apply mr-2;
+
+      .symbol {
+        @apply fill-current ;
+      }
     }
+    &__title {
+      @apply font-bold text-lg;
+    }
+
+    &__content {}
     
-    &.success {
+    &--success {
       @apply bg-green-400;
     }
-  }
 
+    &--warning {
+      @apply bg-orange-500;
+    }
+
+    &--error {
+      @apply bg-red-500;
+    }
+
+    &--info {
+      @apply bg-blue-500;
+    }
 }
 
 .empty-records {

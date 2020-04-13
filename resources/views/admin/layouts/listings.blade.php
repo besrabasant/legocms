@@ -6,6 +6,7 @@ $pageTitle = isset($pageTitle)? $pageTitle : $page->getPageTitle();
 $models = ${$module};
 
 $listingsConfig = [
+    '_token' => \csrf_token(),
     'modals' => [
         'delete_confirmation' => $listings->getDeleteConfimationConfig(),
     ],

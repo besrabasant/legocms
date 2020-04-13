@@ -1,7 +1,7 @@
 .form {
   $form: &;
 
-  @apply flex justify-center mb-12;
+  @apply flex justify-center mb-12 relative;
 
   &__container {
     @apply flex flex-wrap w-full;
@@ -12,14 +12,18 @@
   }
 
   &__actions-container {
-      @apply w-full;
+      @apply w-full h-full border-l border-gray-300 pl-5;
 
       max-width: 300px;
   }
 
+  &__actions {
+    @apply flex items-center justify-center py-4 ;
+  }
 
   &__translation {
-    @apply w-full flex flex-col items-end;
+    @apply absolute w-full flex flex-col items-end right-0;
+    top: -45px;
   }
 
   &__translation-selector,
@@ -63,11 +67,6 @@
     @apply px-4 w-full py-1 flex flex-wrap items-start relative mx-auto;
 
     max-width: 600px;
-
-    &--actions {
-      @apply  bg-gray-100 mt-3 py-2 flex justify-center;
-    }
-
     &--has-errors {
       .form__input {
         &,
