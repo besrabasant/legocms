@@ -18,6 +18,8 @@ if($errors->any()) {
 }
 
 $forms->setConfig('translations', \getLanguagesForVueStore($model->toArray(), $model->isTranslatable()));
+
+$forms->setConfig('revisions', $model->isRevisionable() ? $model->revisionsArray(): false);
 @endphp
 
 @section('content')
@@ -65,6 +67,10 @@ $forms->setConfig('translations', \getLanguagesForVueStore($model->toArray(), $m
                     <div class="form__actions-container">
                         @if($model->isTranslatable())
                         <legocms-form-translation-status></legocms-form-translation-status>
+                        @endif
+
+                        @if($model->isRevisionable())
+                            <legocms-revisions></legocms-revisions>
                         @endif
 
                         <div class="form__actions">

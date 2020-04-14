@@ -4,6 +4,7 @@ import Form from "./Form";
 import TranslatableFormField from "./TranslatableFormField";
 import FormTranslationStatus from "./FormTranslationStatus";
 import FormSubmit from "./FormSubmit";
+import Revisions from "./Revisions";
 
 import FormInputHidden from "./FormInputHidden";
 import FormInputText from "./FormInputText";
@@ -30,6 +31,7 @@ export default {
         Vue.component('legocms-form-input-textarea', FormInputTextArea);
         Vue.component('legocms-form-input-select', FormInputSelect);
         Vue.component('legocms-form-input-toggle', FormInputToggle);
+        Vue.component('legocms-revisions', Revisions);
 
         var $rootEL = document.getElementById("form");
 

@@ -1,0 +1,9 @@
+.revisions {
+    &__item {
+        @apply block underline text-sm mb-2;
+
+        &:hover {
+            @apply text-blue-500;
+        }
+    }
+}

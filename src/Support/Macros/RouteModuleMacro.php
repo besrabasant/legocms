@@ -64,18 +64,18 @@ class RouteModuleMacro
 
             $groupPrefix = \trim(\str_replace('/', '.', Route::getLastGroupPrefix()), '.');
 
-            if (!empty($admin_app_path = \config('legocms.admin_app_path'))) {
-                $groupPrefix = \ltrim(
-                    \str_replace(
-                        $admin_app_path,
-                        '',
-                        $groupPrefix
-                    ),
-                    '.'
-                );
-            }
+            // if (!empty($admin_app_path = \config('legocms.admin_app_path'))) {
+            //     $groupPrefix = \ltrim(
+            //         \str_replace(
+            //             $admin_app_path,
+            //             '',
+            //             $groupPrefix
+            //         ),
+            //         '.'
+            //     );
+            // }
 
-            $additionalRoutesPrefix = !empty($groupPrefix) ? "{$groupPrefix}.{$slug}" : "{$slug}";
+            $additionalRoutesPrefix = $slug;
 
             foreach ($additionalRoutes as $route) {
                 $routeParam = "/{" . Str::singular($slugBase) . "}";

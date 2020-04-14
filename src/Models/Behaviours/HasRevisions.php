@@ -3,6 +3,7 @@
 namespace LegoCMS\Models\Behaviours;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 /**
  * trait HasRevisions.
@@ -114,8 +115,16 @@ trait HasRevisions
         return $this->revisions->map(function ($revision) {
             return [
                 'id' => $revision->id,
+                'url' => \moduleRoute(
+                    $this->getModuleName(),
+                    'previewRevision',
+                    [
+                        Str::slug($this->getSingularModuleName()) => $this->id,
+                        'revision' => $revision->id
+                    ]
+                ),
                 'author' => $revision->user->name ?? 'Unknown',
-                'datetime' => $revision->created_at->toIso8601String(),
+                'datetime' => $revision->created_at->toDayDateTimeString(),
             ];
         })->toArray();
     }

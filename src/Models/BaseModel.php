@@ -163,6 +163,26 @@ abstract class BaseModel extends Model
     }
 
     /**
+     * Returns module name.
+     *
+     * @return string
+     */
+    protected function getModuleName()
+    {
+        return Str::snake(Str::plural(\class_basename(static::class)));
+    }
+
+    /**
+     * Returns singular module name.
+     *
+     * @return string
+     */
+    public function getSingularModuleName()
+    {
+        return Str::snake(\class_basename(static::class));
+    }
+
+    /**
      * Resolves Namespace.
      *
      * @return string
