@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use LegoCMS\Models\Behaviours\IsTranslatable;
+use LegoCMS\Models\Behaviours\IsRevisionable;
 
 /**
  * Class User
@@ -20,7 +21,7 @@ use LegoCMS\Models\Behaviours\IsTranslatable;
  */
 class User extends Authenticatable
 {
-    use Notifiable, SoftDeletes, MustVerifyEmail, IsTranslatable;
+    use Notifiable, SoftDeletes, MustVerifyEmail, IsTranslatable, IsRevisionable;
 
     /**
      * The attributes that are mass assignable.
