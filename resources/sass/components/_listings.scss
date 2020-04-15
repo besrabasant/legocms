@@ -1,7 +1,8 @@
 .listings {
   $listings: &;
 
-  @apply my-4 w-full table-auto text-sm;
+  @apply w-full table-auto text-sm shadow bg-white rounded-md;
+  @apply my-4;
 
   &__header {
     
@@ -14,10 +15,10 @@
   &__row {
     
     &--head {
-      @apply border-b-4 border-gray-400;
+      @apply border-b-4 border-gray-300;
 
       #{$listings}__column-item {
-        @apply font-bold;
+        @apply text-xs text-gray-600 font-bold uppercase tracking-wider;
       }
     }
 

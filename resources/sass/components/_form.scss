@@ -4,15 +4,16 @@
   @apply flex justify-center mb-12 relative;
 
   &__container {
-    @apply flex flex-wrap w-full;
+    @apply w-full flex flex-wrap items-start;
   }
 
   &__fields-container {
-    @apply flex-1;
+    @apply flex-1 shadow rounded-md bg-white;
+    @apply mr-8 pt-6 pb-10 px-6;
   }
 
   &__actions-container {
-      @apply w-full h-full border-l border-gray-300 pl-5;
+      @apply w-full shadow rounded-md bg-white;
 
       max-width: 300px;
   }
@@ -23,7 +24,7 @@
 
   &__translation {
     @apply absolute w-full flex flex-col items-end right-0;
-    top: -45px;
+    top: -70px;
   }
 
   &__translation-selector,
@@ -32,7 +33,7 @@
   }
 
   &__translation-status {
-    @apply mt-3 mr-2;
+    @apply mr-2;
   }
 
   &__translation-status-item {

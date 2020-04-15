@@ -8,7 +8,8 @@
     }
     
     &__header {
-        @apply py-2 px-3 font-medium bg-gray-300 cursor-pointer flex justify-between;
+        @apply font-medium cursor-pointer flex justify-between border-b border-gray-300;
+        @apply py-2 px-3;
 
         .symbol {
             @apply transform transition rotate-0;
