@@ -10,11 +10,11 @@
   }
 
   &__item {
-    @apply px-3;
+    @apply px-3 font-medium;
 
     &--active {
       #{$secondary-nav}__link {
-        @apply bg-gray-200 text-black font-medium;
+        @apply bg-gray-200 text-black font-semibold;
       }
     }
   }

@@ -17,13 +17,17 @@
     }
 
     &__body {
-        @apply py-3 px-3 bg-gray-100;
+        @apply bg-gray-100;
+    }
+
+    &__content {
+        @apply px-3 pb-2 pt-4;
     }
 }
 
 .expand-enter-active,
 .expand-leave-active {
-  transition: max-height 0.3s ease-in-out;
+  transition: max-height 0.5s ease-in-out;
   max-height: 600px;
   overflow: hidden;
 }

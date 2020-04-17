@@ -1,7 +1,7 @@
 .listings {
   $listings: &;
 
-  @apply w-full table-auto text-sm shadow bg-white rounded-md;
+  @apply w-full table-auto text-sm shadow-md bg-white rounded-md;
   @apply my-4;
 
   &__header {
@@ -18,7 +18,7 @@
       @apply border-b-4 border-gray-300;
 
       #{$listings}__column-item {
-        @apply text-xs text-gray-600 font-bold uppercase tracking-wider;
+        @apply pt-4 pb-3 text-xs text-gray-600 font-bold uppercase tracking-wider;
       }
     }
 
@@ -28,11 +28,18 @@
         @apply bg-gray-100 transition;
       }
 
+      #{$listings}__column-item {
+        @apply py-4;
+      }
+    }
+
+    &--empty {
+      @apply w-full;
     }
   }
 
   &__column-item {
-    @apply p-4;
+    @apply px-4;
 
     &--row-actions {
       @apply text-right;
@@ -87,7 +94,7 @@
 }
 
 .empty-records {
-  @apply font-medium text-center text-gray-400 text-4xl pt-10 pb-5;
+  @apply font-medium text-center text-gray-400 text-4xl pt-10 pb-10;
 }
 
 .row-action {

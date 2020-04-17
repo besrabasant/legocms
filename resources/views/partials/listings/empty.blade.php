@@ -7,5 +7,5 @@
         <div class="empty-records">
             {{ \trans("legocms::listings.empty_records") }}
         </div>
-    <td/>
+    </td>
 </tr>

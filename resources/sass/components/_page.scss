@@ -19,7 +19,8 @@
   }
   
   &__header {
-    @apply flex justify-between items-center shadow bg-white px-6 py-3 mb-6 rounded-md;
+    @apply flex justify-between items-center bg-white px-6 py-3 mb-6 rounded-md;
+    @apply  shadow-md;
   }
 
   &__title {

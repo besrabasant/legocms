@@ -23,13 +23,12 @@
   &__header {
     height: theme('legocms.header.height');
 
-    @apply w-full relative top-0 left-0 right-0 shadow-sm;
+    @apply w-full relative top-0 left-0 right-0;
   }
 
   &__main {
     @apply absolute right-0 bottom-0;
 
-    background-color: rgba(#eeeeee, 0.3);
     top: theme('legocms.header.height');
     left: theme('legocms.sidebar.width');
   }

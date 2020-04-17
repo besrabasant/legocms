@@ -1,10 +1,9 @@
 .global-nav {
   $global-nav: &;
 
-  @apply bg-black w-full h-full border-r;
+  @apply w-full h-full border-r;
 
   max-width: calc(theme('legocms.sidebar.width') /2);
-  background-image: $dotted-bg;
 
   &__menu {
     @apply py-4 flex flex-col;
@@ -14,12 +13,16 @@
     @apply px-6;
 
     &--active {
-        @apply bg-gray-500 text-black font-medium;
+        @apply bg-gray-300;
+
+        .global-nav__link {
+          @apply font-medium text-gray-900;
+        }
     }
   }
 
   &__link {
-    @apply block py-1 my-1 text-gray-700 text-sm text-white;
+    @apply block py-1 my-1 text-gray-700 text-sm;
 
     &:hover {
       @apply no-underline;
@@ -30,7 +33,7 @@
     @apply my-4 relative;
 
     &:before {
-      @apply absolute bg-gray-700 left-0 right-0 mx-4;
+      @apply absolute bg-gray-300 left-0 right-0 mx-4;
 
       content: "";
       height: 2px;
