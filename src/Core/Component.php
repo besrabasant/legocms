@@ -28,6 +28,16 @@ abstract class Component
 
     public function render(): string
     {
-        return "";
+        $renderString = "<" . $this->getComponent();
+
+        if ($attributes = $this->toVueAttributes()) {
+            $renderString .= " " . $attributes . " ";
+        }
+
+        $renderString .= ">";
+
+        $renderString .= "</" . $this->getComponent() . ">";
+
+        return $renderString;
     }
 }

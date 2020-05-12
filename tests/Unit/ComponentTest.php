@@ -29,6 +29,16 @@ class ComponentTest extends TestCase
         );
     }
 
+    public function test_instance_renders_component()
+    {
+        $this->component = $this->demoComponentClass();
+
+        $this->assertEquals(
+            "<demo-component></demo-component>",
+            $this->component->render()
+        );
+    }
+
     private function demoComponentClassWithoutComponentProperty()
     {
         return new class extends Component
