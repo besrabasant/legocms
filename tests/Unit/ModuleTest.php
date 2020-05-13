@@ -2,7 +2,7 @@
 
 namespace LegoCMS\Tests\Unit;
 
-use DemoSet1\Modules\DemoModule;
+use DemoSet1\Modules\Article;
 use Mockery;
 
 class ModuleTest extends TestCase
@@ -14,7 +14,7 @@ class ModuleTest extends TestCase
     {
         parent::setUp();
 
-        $this->module = DemoModule::make();
+        $this->module = Article::make();
     }
     /**
      * @test
@@ -22,7 +22,7 @@ class ModuleTest extends TestCase
     public function test_module_name_is_snake_case_of_module_class_base_name()
     {
         $this->assertEquals(
-            'demo_module',
+            'article',
             $this->module->getModuleName()
         );
     }
@@ -41,7 +41,7 @@ class ModuleTest extends TestCase
     public function test_module_model_name()
     {
         $this->assertEquals(
-            "DemoSet1\\Models\\DemoModule",
+            "DemoSet1\\Models\\Article",
             $this->module->getModel()
         );
     }
@@ -49,7 +49,7 @@ class ModuleTest extends TestCase
     public function test_module_controller_name()
     {
         $this->assertEquals(
-            "DemoSet1\\Admin\\Http\\Controllers\\DemoModuleController",
+            "DemoSet1\\Admin\\Http\\Controllers\\ArticleController",
             $this->module->getController()
         );
     }

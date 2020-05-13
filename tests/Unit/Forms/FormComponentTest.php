@@ -2,9 +2,13 @@
 
 namespace LegoCMS\Tests\Unit\Forms;
 
-use DemoSet1\Modules\DemoModule;
+use DemoSet1\Modules\Article;
+use Illuminate\Support\Facades\Session;
+use LegoCMS\Core\Actions\UpdateAction;
+use LegoCMS\Forms\Fields\ID;
 use LegoCMS\Tests\Unit\TestCase;
 use LegoCMS\Forms\Form;
+use LegoCMS\Forms\FormFields;
 use Mockery;
 
 class FormComponentTest extends TestCase
@@ -15,7 +19,8 @@ class FormComponentTest extends TestCase
     {
         parent::setUp();
 
-        $this->mock = Mockery::mock(DemoModule::make());
+        $this->mock = Mockery::mock(Article::make());
+        Session::shouldReceive('token')->andReturn('csrf_token');
     }
 
     /**
@@ -24,14 +29,14 @@ class FormComponentTest extends TestCase
     public function test_form_renders()
     {
         $this->mock->shouldReceive('getRoute')
-            ->with("create")
+            ->with("store")
             ->andReturn('/demo-module');
 
         $component = Form::make("form", $this->mock);
 
         $this->assertEquals(
-            '<legocms-form method="POST" action-url="/demo-module"></legocms-form>',
-            $component->render()
+            '<legocms-form name="form" method="POST" action-url="/demo-module" token="csrf_token"></legocms-form>',
+            $component->render()->toHtml()
         );
     }
 
@@ -46,10 +51,34 @@ class FormComponentTest extends TestCase
 
         $component = Form::make("form", $this->mock);
 
-        $component->forAction("UPDATE");
+        $component->forAction(UpdateAction::make($this->mock));
 
         $this->assertEquals(
-            '<legocms-form method="PUT" action-url="/demo-module"></legocms-form>',
+            '<legocms-form name="form" method="PUT" action-url="/demo-module" token="csrf_token"></legocms-form>',
+            $component->render()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function test_form_can_render_fields()
+    {
+        $this->mock->shouldReceive('getRoute')
+            ->andReturn('/demo-module');
+
+        $component = Form::make("form", $this->mock);
+
+        $component->setFormFields(FormFields::make([
+            ID::make()
+        ]));
+
+        $expected = '<legocms-form name="form" method="POST" action-url="/demo-module" token="csrf_token">' . PHP_EOL .
+            "\t" . '<id-field value=""></id-field>' . PHP_EOL .
+            '</legocms-form>';
+
+        $this->assertEquals(
+            $expected,
             $component->render()
         );
     }

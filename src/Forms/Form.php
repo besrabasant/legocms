@@ -2,30 +2,30 @@
 
 namespace LegoCMS\Forms;
 
-use Illuminate\Support\Collection;
+use LegoCMS\Core\Actions\StoreAction;
 use LegoCMS\Core\Component;
 
 class Form extends Component
 {
-    /** @var string */
+    /** @var string Name of the component */
     protected $name;
 
-    /** @var \LegoCMS\Core\Module */
+    /** @var \LegoCMS\Core\Module Module to which component refers to. */
     protected $module;
 
-    /** @var string */
+    /** @var string Form method attribute */
     protected $method;
 
-    /** @var string */
+    /** @var \LegoCMS\Core\Action Form action */
     protected $action;
 
-    /** @var string */
+    /** @var string  */
     protected $actionUrl;
 
     /** @var string */
     protected $component = "legocms-form";
 
-    /** @var \Illuminate\Support\Collection */
+    /** @var \LegoCMS\Forms\FormFields */
     protected $fields;
 
     /**
@@ -33,7 +33,7 @@ class Form extends Component
      *
      * @param  string $name
      */
-    private function __contruct(string $name)
+    private function __construct(string $name)
     {
         $this->name = $name;
     }
@@ -51,6 +51,8 @@ class Form extends Component
         $instance = new static($name);
 
         $instance->setModule($module);
+
+        $instance->setAction(StoreAction::make($module));
 
         return $instance;
     }
@@ -72,11 +74,11 @@ class Form extends Component
     /**
      * setAction() : Sets form action.
      *
-     * @param  string $action
+     * @param  \LegoCMS\Core\Action $action
      *
      * @return static
      */
-    public function setAction(string $action)
+    public function setAction($action)
     {
         $this->action = $action;
 
@@ -113,11 +115,11 @@ class Form extends Component
     /**
      * forAction
      *
-     * @param  string $action
+     * @param  \LegoCMS\Core\Action $action
      *
      * @return static
      */
-    public function forAction(string $action)
+    public function forAction($action)
     {
         $this->setAction($action);
 
@@ -127,45 +129,61 @@ class Form extends Component
     /**
      * setFormFields
      *
-     * @param  \Illuminate\Support\Collection $fields
+     * @param  \LegoCMS\Forms\FormFields $fields
      *
      * @return static
      */
-    public function setFormFields($fields)
+    public function setFormFields(FormFields $fields)
     {
-        $this->fields = is_array($fields) ? Collection::make($fields) : $fields;
+        $this->fields = $fields;
 
         return $this;
     }
 
     /**
-     * @return void
+     * @inheritDoc
      */
-    public function build()
+    public function build(): void
     {
         $this->buildActionUrl();
     }
 
+    /**
+     * buildActionUrl(): Builds Action Url according to action.
+     *
+     * @return void
+     */
     private function buildActionUrl()
     {
-        switch ($this->action) {
-            case "UPDATE":
-                $this->setMethod("PUT");
-                $this->setActionUrl($this->module->getRoute("update"));
-                break;
-            case "CREATE":
-            default:
-                $this->setMethod("POST");
-                $this->setActionUrl($this->module->getRoute("create"));
-                break;
-        }
+        $this->setMethod($this->action->getMethod());
+        $this->setActionUrl($this->action->url());
     }
 
+    /** @inheritDoc */
+    protected function renderInner(): string
+    {
+        $innerHtml = "";
+
+        if ($this->fields) {
+            $innerHtml = $this->fields->reduce(function ($acc, $field) {
+                $acc .= $field->render();
+                return $acc;
+            }, $innerHtml);
+        }
+
+        return $innerHtml;
+    }
+
+    /**
+     * @inheritDoc
+     */
     protected function prepareVueAttributes(): array
     {
         return [
+            "name" => $this->name,
             'method' => $this->method,
-            'action-url' => $this->actionUrl
+            'action-url' => $this->actionUrl,
+            'token' => \csrf_token(),
         ];
     }
 }

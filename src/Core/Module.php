@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use LegoCMS\Core\DefaultSkleton;
 use LegoCMS\Forms\FormBuilder;
+use LegoCMS\Listings\ListingsBuilder;
 
 abstract class Module
 {
@@ -33,6 +34,9 @@ abstract class Module
     /** @var string */
     protected $formBuilder = FormBuilder::class;
 
+    /** @var string */
+    protected $listingsBuilder = ListingsBuilder::class;
+
     /**
      * __construct()
      */
@@ -58,6 +62,11 @@ abstract class Module
         }
 
         return $this->moduleName;
+    }
+
+    public function getModuleNamePlural(): string
+    {
+        return Str::plural($this->getModuleName());
     }
 
     public function getLegoSetName(): string
@@ -101,14 +110,24 @@ abstract class Module
         return [];
     }
 
+    protected function defaultActions(): array
+    {
+        return [];
+    }
+
     public function getFormBuilder(): FormBuilder
     {
         return $this->formBuilder::make($this);
     }
 
-    public function getRoute($action = "", $options = [])
+    public function getListingsBuilder(): ListingsBuilder
     {
-        return \route($this->getModuleName() . "." . $action, $options);
+        return $this->listingsBuilder::make($this);
+    }
+
+    public function getRoute($action = "", $options = [], $namespace = "legocms")
+    {
+        return \route($namespace . "." . $this->getModuleNamePlural() . "." . $action, $options);
     }
 
     private function resolveLegoSetName(): string

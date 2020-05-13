@@ -36,6 +36,8 @@ abstract class TestCase extends BaseTestCase
             'database' => ':memory:',
             'prefix' => '',
         ]);
+        $app['config']->set('legocms.admin_app_url', 'http://localhost');
+        $app['config']->set('legocms.admin_app_path', '/admin');
     }
 
     protected function getPackageProviders($app)

@@ -3,9 +3,11 @@
 namespace LegoCMS\Core;
 
 use Exception;
+use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\HtmlString;
 use LegoCMS\Core\Behaviors\HasVueAttributes;
 
-abstract class Component
+abstract class Component implements Renderable
 {
     use HasVueAttributes;
 
@@ -24,14 +26,18 @@ abstract class Component
     /**
      * build
      *
-     * @return static
+     * @return void
      */
-    public function build()
+    public function build(): void
     {
-        return $this;
     }
 
-    public function render(): string
+    protected function renderInner(): string
+    {
+        return "";
+    }
+
+    public function render()
     {
         $this->build();
 
@@ -43,8 +49,12 @@ abstract class Component
 
         $renderString .= ">";
 
+        if ($innerHtml = $this->renderInner()) {
+            $renderString .= PHP_EOL . "\t" . $innerHtml . PHP_EOL;
+        }
+
         $renderString .= "</" . $this->getComponent() . ">";
 
-        return $renderString;
+        return new HtmlString($renderString);
     }
 }

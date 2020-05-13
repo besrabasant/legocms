@@ -127,25 +127,70 @@ abstract class BaseField extends Component
      */
     public function setProperty(string $property = null)
     {
-        $this->property = $property ?? \str_replace(" ", "_", Str::lower($this->name));
+        $this->property = $property ?? $this->resolvePropertyFromName();
 
         return $this;
     }
 
+    /**
+     * setValue
+     *
+     * @param  mixed $value
+     * @return void
+     */
     public function setValue($value)
     {
         $this->value = $value;
+
+        return $this;
     }
 
-    public function getvalue()
+    /**
+     * getValue
+     *
+     * @return mixed
+     */
+    public function getValue()
     {
         return $this->value;
     }
 
+    /**
+     * helpText
+     *
+     * @param  string $text
+     * @return static
+     */
     public function helpText(string $text)
     {
         $this->helpText = $text;
 
         return $this;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function build(): void
+    {
+        $this->buildForComputedComponent();
+    }
+
+    /**
+     * buildForComputed(): builds Field component value if Computed.
+     *
+     * @return void
+     */
+    protected function buildForComputedComponent(): void
+    {
+        if ($this->isComputed) {
+            $this->setProperty($this->resolvePropertyFromName());
+            $this->setValue(\app()->call($this->computedValueCallback));
+        }
+    }
+
+    protected function resolvePropertyFromName(): string
+    {
+        return \str_replace(" ", "_", Str::lower($this->name));
     }
 }
