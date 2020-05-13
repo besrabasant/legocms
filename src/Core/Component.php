@@ -21,6 +21,11 @@ abstract class Component
         return $this->component;
     }
 
+    /**
+     * build
+     *
+     * @return static
+     */
     public function build()
     {
         return $this;
@@ -28,10 +33,12 @@ abstract class Component
 
     public function render(): string
     {
+        $this->build();
+
         $renderString = "<" . $this->getComponent();
 
         if ($attributes = $this->toVueAttributes()) {
-            $renderString .= " " . $attributes . " ";
+            $renderString .= " " . $attributes;
         }
 
         $renderString .= ">";

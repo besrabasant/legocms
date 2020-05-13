@@ -54,7 +54,7 @@ abstract class BaseField extends Component
      *
      * @return static
      */
-    public static function make(string $name, callable $property = null): self
+    public static function make(string $name, callable $property = null)
     {
         $fieldInstance = new static($name);
 

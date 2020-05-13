@@ -103,7 +103,12 @@ abstract class Module
 
     public function getFormBuilder(): FormBuilder
     {
-        return new $this->formBuilder();
+        return $this->formBuilder::make($this);
+    }
+
+    public function getRoute($action = "", $options = [])
+    {
+        return \route($this->getModuleName() . "." . $action, $options);
     }
 
     private function resolveLegoSetName(): string

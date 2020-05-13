@@ -29,12 +29,12 @@ class ComponentTest extends TestCase
         );
     }
 
-    public function test_instance_renders_component()
+    public function test_instance_can_renders_component()
     {
         $this->component = $this->demoComponentClass();
 
         $this->assertEquals(
-            "<demo-component></demo-component>",
+            '<demo-component prop-1="prop 1 value"></demo-component>',
             $this->component->render()
         );
     }
@@ -58,7 +58,9 @@ class ComponentTest extends TestCase
 
             protected function prepareVueAttributes(): array
             {
-                return [];
+                return [
+                    "prop-1" => "prop 1 value"
+                ];
             }
         };
     }
