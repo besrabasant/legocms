@@ -9,6 +9,7 @@ use LegoCMS\Support\Facades\LegoCMS;
 use LegoCMS\Support\Facades\MenuService;
 use LegoCMS\Tests\Behaviours\ActsAsSuperAdmin;
 use LegoCMS\Tests\Behaviours\ManagesLegoSets;
+use LegoCMS\Tests\TestMessage;
 
 class LegoSetsTest extends TestCase
 {
@@ -36,6 +37,7 @@ class LegoSetsTest extends TestCase
      */
     public function testDemoLegoSetRoutesAreRegistered()
     {
+        $this->markTestSkipped(TestMessage::NEEDS_REWRITE);
 
         $routes = collect(Route::getRoutes())->mapWithKeys(function ($route) {
             return [$route->getName() => $route->uri()];
