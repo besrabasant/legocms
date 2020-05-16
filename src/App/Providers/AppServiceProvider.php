@@ -8,7 +8,7 @@ use LegoCMS\Core\Support\Facades\ModuleLoader;
 use LegoCMS\Core\Support\Facades\ModuleRepository;
 use LegoCMS\Core\Support\LegoAppServiceProvider;
 use Illuminate\Support\Facades\Route;
-use LegoCMS\App\Http\Controllers\FallbackModuleController;
+use LegoCMS\App\Http\Controllers\ModuleController;
 
 class AppServiceProvider extends LegoAppServiceProvider
 {
@@ -28,7 +28,7 @@ class AppServiceProvider extends LegoAppServiceProvider
     {
         ModuleRepository::each(function (Module $module) {
             $controller = class_exists($module->getController()) ? $module->getController()
-                : FallbackModuleController::class;
+                : ModuleController::class;
             Route::resource($module->getModuleName(), $controller);
         });
     }
