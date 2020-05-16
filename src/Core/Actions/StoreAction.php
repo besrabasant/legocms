@@ -10,7 +10,7 @@ class StoreAction extends Action
 
     protected $method = "POST";
 
-    public function handle($request, $model)
+    public function handle($request, $model, $params = null)
     {
     }
 

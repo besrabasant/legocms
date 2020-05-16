@@ -4,9 +4,11 @@ namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
 
-class CreateAction extends Action
+class DeleteAction extends Action
 {
-    protected $name = "create";
+    protected $name = "delete";
+
+    protected $method = "DELETE";
 
     public function handle($request, $model, $params = null)
     {
@@ -14,7 +16,7 @@ class CreateAction extends Action
 
     public function url()
     {
-        return $this->module->getRoute("create");
+        return $this->module->getRoute($this->name());
     }
 
     protected function prepareVueAttributes(): array

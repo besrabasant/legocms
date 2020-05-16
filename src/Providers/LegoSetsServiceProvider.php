@@ -2,7 +2,7 @@
 
 namespace LegoCMS\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use LegoCMS\Core\Support\LegoAppServiceProvider;
 use LegoCMS\Services\LegoSet;
 use LegoCMS\Support\Facades\LegoCMS;
 
@@ -15,7 +15,7 @@ use LegoCMS\Support\Facades\LegoCMS;
  * @license  MIT https://opensource.org/licenses/MIT
  * @link     https://github.com/besrabasant/legocms/blob/master/src/Providers/LegoSetsServiceProvider.php
  */
-class LegoSetsServiceProvider extends ServiceProvider
+class LegoSetsServiceProvider extends LegoAppServiceProvider
 {
     /**
      * Registers application services.
@@ -24,7 +24,6 @@ class LegoSetsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        parent::register();
     }
 
     /**

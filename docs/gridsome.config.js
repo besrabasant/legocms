@@ -39,6 +39,13 @@ module.exports = {
               '/docs/settings/',
               '/docs/sidebar/',
             ]
+          },
+          {
+            title: 'Module',
+            items: [
+              '/docs/module/',
+              '/docs/module/#defining-a-module',
+            ]
           }
         ]
       }

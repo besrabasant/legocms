@@ -8,8 +8,12 @@ abstract class ViewBuilder
 {
     protected $module;
 
-    private function __contruct()
+    /** @var \Illuminate\Foundation\Application */
+    protected $app;
+
+    private function __construct()
     {
+        $this->app = \app();
     }
 
     public static function make(Module $module)

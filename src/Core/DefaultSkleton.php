@@ -12,6 +12,11 @@ class DefaultSkleton extends BaseSkleton implements Skleton
         return "Models";
     }
 
+    public function modulesFolder(): string
+    {
+        return "Modules";
+    }
+
     public function contractsFolder(): string
     {
         return "Support/Contracts";
@@ -19,17 +24,17 @@ class DefaultSkleton extends BaseSkleton implements Skleton
 
     public function providersFolder(): string
     {
-        return "Admin/Providers";
+        return "Providers";
     }
 
     public function controllersFolder(): string
     {
-        return "Admin/Http/Controllers";
+        return "Http/Controllers";
     }
 
     public function requestsFolder(): string
     {
-        return "Admin/Http/Requests";
+        return "Http/Requests";
     }
 
     public function routesFolder(): string

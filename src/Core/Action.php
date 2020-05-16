@@ -15,6 +15,8 @@ abstract class Action extends Component
 
     protected $method = "GET";
 
+    protected $data;
+
     public static function make(Module $module)
     {
         $instance = new static();
@@ -56,7 +58,12 @@ abstract class Action extends Component
         return $this->method;
     }
 
-    abstract public function handle($request, $model);
+    public function setData($data)
+    {
+        $this->data = $data;
+    }
+
+    abstract public function handle($request, $model, $params = null);
 
     abstract public function url();
 }

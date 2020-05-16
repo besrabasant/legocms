@@ -3,9 +3,14 @@
 namespace LegoCMS\Providers;
 
 use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Support\ServiceProvider;
 use Astrotomic\Translatable\TranslatableServiceProvider;
+use Illuminate\Foundation\Application;
+use LegoCMS\App\Providers\AppServiceProvider;
 use LegoCMS\Commands\CreateSuperAdmin;
+use LegoCMS\Core\ModuleLoader;
+use LegoCMS\Core\ModuleResolver;
+use LegoCMS\Core\Providers\CoreServiceProvider;
+use LegoCMS\Core\Support\LegoAppServiceProvider;
 use LegoCMS\Exceptions\LegoCMSExceptionHandler;
 use LegoCMS\Models\User;
 use LegoCMS\Services\LegoCMS;
@@ -20,13 +25,15 @@ use LegoCMS\Testing\TestServiceProvider;
  * @license  MIT https://opensource.org/licenses/MIT
  * @link     https://github.com/besrabasant/legocms/blob/master/src/Providers/LegoCMSServiceProvider.php
  */
-class LegoCMSServiceProvider extends ServiceProvider
+class LegoCMSServiceProvider extends LegoAppServiceProvider
 {
     protected $serviceProviders = [
+        TranslatableServiceProvider::class,
         LegoSetsServiceProvider::class,
         RouteServiceProvider::class,
         ViewServiceProvider::class,
-        TranslatableServiceProvider::class,
+        CoreServiceProvider::class,
+        AppServiceProvider::class,
     ];
 
     /**

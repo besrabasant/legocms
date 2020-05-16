@@ -16,7 +16,8 @@ trait ManagesLegoSets
         return array_merge(
             parent::getPackageProviders($app),
             [
-                "DemoSet1\Providers\ServiceProvider"
+                "DemoSet1\Providers\ServiceProvider",
+                "DemoSet1\Providers\ModuleServiceProvider"
             ]
         );
     }

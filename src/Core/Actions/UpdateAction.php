@@ -10,7 +10,7 @@ class UpdateAction extends Action
 
     protected $method = "PUT";
 
-    public function handle($request, $model)
+    public function handle($request, $model, $params = null)
     {
     }
 

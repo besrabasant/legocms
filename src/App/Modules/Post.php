@@ -1,13 +1,16 @@
 <?php
 
-namespace DemoSet1\Modules;
+namespace LegoCMS\App\Modules;
 
 use LegoCMS\Core\Module;
 use LegoCMS\Forms\Fields\ID;
 use \Illuminate\Http\Request;
+use LegoCMS\App\Support\Behaviors\OverridesLegoSetName;
 
-class Article extends Module
+class Post extends Module
 {
+    use OverridesLegoSetName;
+
     public function fields(Request $request): array
     {
         return [

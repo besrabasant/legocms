@@ -13,11 +13,15 @@
         <p class="text-xl font-medium text-center">
           Perfect Lighthouse score out of the box. Easy to set-up. Dark mode included.
           <br>
-          <strong class="text-ui-primary">Got a minute?</strong>
         </p>
 
         <div class="py-4">
-          <code class="block px-4 py-1 select-all bg-ui-border text-ui-typo">gridsome create your-project https://github.com/mrcrmn/docc</code>
+          <strong class="text-ui-primary">Start by requiring the package into your laravel project.</strong>
+          <br/>
+          <br/>
+          <code class="block px-4 pb-1 pt-2 select-all bg-ui-border text-ui-typo text-center">
+            composer require legocms/legocms
+          </code>
         </div>
 
         <div class="flex justify-center mt-8">
@@ -25,13 +29,13 @@
             to="/docs/"
             class="flex items-center px-6 py-4 ml-auto text-2xl font-bold leading-none text-white border rounded-lg shadow-lg bg-ui-primary border-ui-primary transition-all duration-200 ease-out transform hover:shadow-xl hover:-translate-y-1"
           >
-            Get started
+            Explore in depth
             <ArrowRightCircleIcon class="ml-4" size="1x" />
           </g-link>
         </div>
 
         <p class="mt-8 text-center">
-          Open Source. MIT License. <span class="border-b border-dashed border-ui-primary text-ui-primary">Make it your own</span>.
+          Open Source. MIT License. <span class="border-b border-dashed border-ui-primary text-ui-primary">Free to use and extend.</span>.
         </p>
 
       </div>
