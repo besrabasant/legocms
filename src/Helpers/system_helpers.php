@@ -87,6 +87,7 @@ if (!function_exists('class_implements_interface')) {
      * Checks if a class implements a particular interface.
      *
      * @param  string|object  $class
+     * @param  string  $interface
      *
      * @return  boolean
      */

@@ -4,11 +4,13 @@ namespace LegoCMS\Core;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use LegoCMS\Core\Actions\BulkDeleteAction;
 use LegoCMS\Core\Actions\CreateAction;
 use LegoCMS\Core\Actions\DeleteAction;
 use LegoCMS\Core\Actions\InbuiltActions;
 use LegoCMS\Core\Actions\StoreAction;
 use LegoCMS\Core\Actions\UpdateAction;
+use LegoCMS\Core\Actions\ViewAction;
 use LegoCMS\Core\DefaultSkleton;
 use LegoCMS\Forms\FormBuilder;
 use LegoCMS\Listings\ListingsBuilder;
@@ -178,14 +180,21 @@ abstract class Module
         return [];
     }
 
-    protected function defaultActions(): array
+    public function defaultActions(): array
     {
         return [
             CreateAction::make($this),
             StoreAction::make($this),
+            ViewAction::make($this),
             UpdateAction::make($this),
-            DeleteAction::make($this)
+            DeleteAction::make($this),
+            BulkDeleteAction::make($this)
         ];
+    }
+
+    public function actions(): array
+    {
+        return [];
     }
 
     /**
@@ -210,6 +219,11 @@ abstract class Module
 
     public function showListings()
     {
+    }
+
+    public function getModuleRoute()
+    {
+        return $this->getModuleName();
     }
 
     /**

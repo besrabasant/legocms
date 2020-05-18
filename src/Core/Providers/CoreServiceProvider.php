@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use LegoCMS\Core\ModuleLoader;
 use LegoCMS\Core\ModuleResolver;
 use LegoCMS\Core\Support\ModuleRepository;
+use LegoCMS\Core\RoutesRegistrar;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,14 @@ class CoreServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadRoutes();
+    }
+
+    private function loadRoutes()
+    {
+        (new RoutesRegistrar())
+            ->withAuthRoutes()
+            ->register();
     }
 
     /**

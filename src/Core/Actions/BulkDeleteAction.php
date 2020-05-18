@@ -3,10 +3,14 @@
 namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
+use LegoCMS\Core\Behaviors\HandlesBulkAction;
+use LegoCMS\Core\Contracts\ShouldHandleBulkAction;
 
-class DeleteAction extends Action
+class BulkDeleteAction extends Action implements ShouldHandleBulkAction
 {
-    protected $name = "destroy";
+    use HandlesBulkAction;
+
+    protected $name = "bulkDelete";
 
     protected $method = "DELETE";
 

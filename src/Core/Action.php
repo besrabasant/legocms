@@ -2,6 +2,7 @@
 
 namespace LegoCMS\Core;
 
+use LegoCMS\Core\Contracts\ShouldHandleBulkAction;
 use LegoCMS\Core\Module;
 
 abstract class Action extends Component
@@ -16,6 +17,13 @@ abstract class Action extends Component
     protected $method = "GET";
 
     protected $data;
+
+    /** @var string */
+    protected $routeNamePrefix = "legocms.module";
+
+    public function __construct()
+    {
+    }
 
     public static function make(Module $module)
     {
@@ -61,6 +69,16 @@ abstract class Action extends Component
     public function setData($data)
     {
         $this->data = $data;
+    }
+
+    public function getRouteName(): string
+    {
+        return sprintf("%s.%s.%s", $this->routeNamePrefix, $this->module->getModuleName(), $this->name());
+    }
+
+    public function shouldhandlerBulk(): bool
+    {
+        return \class_implements_interface(static::class, ShouldHandleBulkAction::class);
     }
 
     abstract public function handle($request, $model, $params = null);

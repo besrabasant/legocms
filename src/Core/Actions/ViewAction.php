@@ -4,11 +4,11 @@ namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
 
-class DeleteAction extends Action
+class ViewAction extends Action
 {
-    protected $name = "destroy";
+    protected $name = "show";
 
-    protected $method = "DELETE";
+    protected $method = "GET";
 
     public function handle($request, $model, $params = null)
     {
