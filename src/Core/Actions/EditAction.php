@@ -4,9 +4,9 @@ namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
 
-class ViewAction extends Action
+class EditAction extends Action
 {
-    protected $name = "show";
+    protected $name = "edit";
 
     protected $method = "GET";
 
@@ -27,9 +27,10 @@ class ViewAction extends Action
     public function pathSchema(): string
     {
         return sprintf(
-            "%s/{%s}",
+            "%s/{%s}/{%s}",
             $this->module->getModuleNamePlural(),
-            $this->module->getModuleName()
+            $this->module->getModuleName(),
+            $this->name()
         );
     }
 }

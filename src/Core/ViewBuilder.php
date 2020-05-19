@@ -11,6 +11,8 @@ abstract class ViewBuilder
     /** @var \Illuminate\Foundation\Application */
     protected $app;
 
+    protected $result = "";
+
     private function __construct()
     {
         $this->app = \app();
@@ -32,4 +34,9 @@ abstract class ViewBuilder
     }
 
     abstract public function build(): void;
+
+    public function result()
+    {
+        return $this->result;
+    }
 }

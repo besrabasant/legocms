@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use LegoCMS\Core\Actions\BulkDeleteAction;
 use LegoCMS\Core\Actions\CreateAction;
 use LegoCMS\Core\Actions\DeleteAction;
+use LegoCMS\Core\Actions\EditAction;
+use LegoCMS\Core\Actions\ForceDeleteAction;
 use LegoCMS\Core\Actions\InbuiltActions;
 use LegoCMS\Core\Actions\StoreAction;
 use LegoCMS\Core\Actions\UpdateAction;
@@ -186,8 +188,10 @@ abstract class Module
             CreateAction::make($this),
             StoreAction::make($this),
             ViewAction::make($this),
+            EditAction::make($this),
             UpdateAction::make($this),
             DeleteAction::make($this),
+            ForceDeleteAction::make($this),
             BulkDeleteAction::make($this)
         ];
     }

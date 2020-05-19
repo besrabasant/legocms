@@ -3,12 +3,13 @@
 namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
+use Illuminate\Support\Str;
 
-class ViewAction extends Action
+class ForceDeleteAction extends Action
 {
-    protected $name = "show";
+    protected $name = "forceDelete";
 
-    protected $method = "GET";
+    protected $method = "PUT";
 
     public function handle($request, $model, $params = null)
     {
@@ -27,9 +28,10 @@ class ViewAction extends Action
     public function pathSchema(): string
     {
         return sprintf(
-            "%s/{%s}",
+            "%s/{%s}/%s",
             $this->module->getModuleNamePlural(),
-            $this->module->getModuleName()
+            $this->module->getModuleName(),
+            Str::kebab($this->name())
         );
     }
 }

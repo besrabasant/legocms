@@ -6,7 +6,7 @@ use LegoCMS\Core\Action;
 
 class DeleteAction extends Action
 {
-    protected $name = "destroy";
+    protected $name = "delete";
 
     protected $method = "DELETE";
 
@@ -22,5 +22,14 @@ class DeleteAction extends Action
     protected function prepareVueAttributes(): array
     {
         return [];
+    }
+
+    public function pathSchema(): string
+    {
+        return sprintf(
+            "%s/{%s}",
+            $this->module->getModuleNamePlural(),
+            $this->module->getModuleName()
+        );
     }
 }

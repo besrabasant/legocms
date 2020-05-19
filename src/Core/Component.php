@@ -32,6 +32,11 @@ abstract class Component implements Renderable
     {
     }
 
+    /**
+     * renderInner(): Renders component inner content
+     *
+     * @return string
+     */
     protected function renderInner(): string
     {
         return "";

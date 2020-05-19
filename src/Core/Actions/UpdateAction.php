@@ -23,4 +23,13 @@ class UpdateAction extends Action
     {
         return [];
     }
+
+    public function pathSchema(): string
+    {
+        return sprintf(
+            "%s/{%s}",
+            $this->module->getModuleNamePlural(),
+            $this->module->getModuleName()
+        );
+    }
 }

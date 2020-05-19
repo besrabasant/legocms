@@ -8,6 +8,7 @@ use LegoCMS\Core\ModuleLoader;
 use LegoCMS\Core\ModuleResolver;
 use LegoCMS\Core\Support\ModuleRepository;
 use LegoCMS\Core\RoutesRegistrar;
+use LegoCMS\Core\View\ListingsView;
 
 class CoreServiceProvider extends ServiceProvider
 {
@@ -44,5 +45,7 @@ class CoreServiceProvider extends ServiceProvider
         $this->app->bind(ModuleResolver::class, function (Application $app) {
             return new ModuleResolver($app);
         });
+
+        $this->app->bind(ListingsView::class, ListingsView::class);
     }
 }

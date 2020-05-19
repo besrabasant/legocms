@@ -23,4 +23,12 @@ class StoreAction extends Action
     {
         return [];
     }
+
+    public function pathSchema(): string
+    {
+        return sprintf(
+            "%s",
+            $this->module->getModuleNamePlural(),
+        );
+    }
 }

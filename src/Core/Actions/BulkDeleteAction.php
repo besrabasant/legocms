@@ -5,6 +5,7 @@ namespace LegoCMS\Core\Actions;
 use LegoCMS\Core\Action;
 use LegoCMS\Core\Behaviors\HandlesBulkAction;
 use LegoCMS\Core\Contracts\ShouldHandleBulkAction;
+use Illuminate\Support\Str;
 
 class BulkDeleteAction extends Action implements ShouldHandleBulkAction
 {
@@ -12,7 +13,7 @@ class BulkDeleteAction extends Action implements ShouldHandleBulkAction
 
     protected $name = "bulkDelete";
 
-    protected $method = "DELETE";
+    protected $method = "POST";
 
     public function handle($request, $model, $params = null)
     {
@@ -26,5 +27,14 @@ class BulkDeleteAction extends Action implements ShouldHandleBulkAction
     protected function prepareVueAttributes(): array
     {
         return [];
+    }
+
+    public function pathSchema(): string
+    {
+        return sprintf(
+            "%s/%s",
+            $this->module->getModuleNamePlural(),
+            Str::kebab($this->name())
+        );
     }
 }

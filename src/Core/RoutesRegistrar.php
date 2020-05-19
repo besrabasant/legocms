@@ -80,11 +80,10 @@ class RoutesRegistrar
 
                 $additonalActions->each(function (Action $action) use ($module, $controller) {
                     $method = strtolower($action->getMethod());
-                    $path = $module->getModuleNamePlural() . "/" . Str::kebab($action->name());
                     $controllerMethod = $controller . "@" . $action->name();
                     $name = $module->getModuleNamePlural() . '.' . $action->name();
 
-                    Route::{$method}($path, $controllerMethod)->name($name);
+                    Route::{$method}($action->pathSchema(), $controllerMethod)->name($name);
                 });
             });
         });

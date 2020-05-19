@@ -21,4 +21,13 @@ class CreateAction extends Action
     {
         return [];
     }
+
+    public function pathSchema(): string
+    {
+        return sprintf(
+            "%s/%s",
+            $this->module->getModuleNamePlural(),
+            $this->name()
+        );
+    }
 }
