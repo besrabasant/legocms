@@ -12,7 +12,9 @@ class AppShell extends Component
 
     protected function prepareVueAttributes(): array
     {
-        return [];
+        return [
+            'token' => \csrf_token(),
+        ];
     }
 
     /**

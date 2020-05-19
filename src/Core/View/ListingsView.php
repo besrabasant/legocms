@@ -36,6 +36,6 @@ class ListingsView implements Renderable
     {
         $this->builder->build();
 
-        return new HtmlString($this->builder->result());
+        return $this->view->make("legocms::admin.layout", ['content' => new HtmlString($this->builder->result())]);
     }
 }

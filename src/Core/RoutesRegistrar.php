@@ -29,7 +29,11 @@ class RoutesRegistrar
     {
         Route::domain($this->appDomain())
             ->group(function () {
-                Route::group(['prefix' => \config("legocms.admin_app_path"), "as" => "legocms."], function () {
+                Route::group([
+                    'prefix' => \config("legocms.admin_app_path"),
+                    "as" => "legocms.",
+                    'middleware' => ["web"]
+                ], function () {
                     if ($this->authRoutes) {
                         $this->registerAuthRoutes();
                     }

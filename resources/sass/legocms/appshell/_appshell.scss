@@ -1,0 +1,20 @@
+.legocms {
+    @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full bg-gray-200;
+
+    &__header {
+        @apply absolute left-0 right-0 top-0 bg-white shadow;
+        height: $appshell-header-height;
+    }
+
+    &__navigation {
+        @apply absolute left-0 bottom-0;
+        top: $appshell-header-height;
+        width: $appshell-navigation-width;
+    }
+
+    &__main {
+        @apply absolute right-0 bottom-0;
+        top: $appshell-header-height;
+        left: $appshell-navigation-width;
+    }
+}

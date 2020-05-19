@@ -1,1 +1,13 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{null:function(n,w){}}]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["spritemap"],{
+
+/***/ null:
+/*!******************************!*\
+  !*** spritemap-dummy-module ***!
+  \******************************/
+/***/ (function(module, exports) {
+
+
+
+/***/ })
+
+}]);

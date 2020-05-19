@@ -1,9 +1,11 @@
 {
-    "/admin/js/legocms-admin.js": "/admin/js/legocms-admin.js?id=52d6ae760d0db95a81f2",
-    "/admin/css/legocms-admin.css": "/admin/css/legocms-admin.css?id=4a8638847169f40e6f2b",
-    "/admin/css/legocms-auth.css": "/admin/css/legocms-auth.css?id=c23f0b2295cd223a978c",
-    "/admin/js/legocms-auth.js": "/admin/js/legocms-auth.js?id=c86033596bd7ea77cb72",
-    "/spritemap.js": "/spritemap.js?id=915ce7f5774e5fc4a032",
-    "/admin/icons/sprite.svg": "/admin/icons/sprite.svg?id=742dcb2a1f075ca4ace3",
-    "/admin/js/jquery.js": "/admin/js/jquery.js?id=f832e36068ab203a3f89"
+    "/admin/js/legocms-admin.js": "/admin/js/legocms-admin.js",
+    "/admin/js/legocms-admin-2.js": "/admin/js/legocms-admin-2.js",
+    "/admin/css/legocms-admin-2.css": "/admin/css/legocms-admin-2.css",
+    "/admin/css/legocms-admin.css": "/admin/css/legocms-admin.css",
+    "/admin/css/legocms-auth.css": "/admin/css/legocms-auth.css",
+    "/admin/js/legocms-auth.js": "/admin/js/legocms-auth.js",
+    "/spritemap.js": "/spritemap.js",
+    "/admin/icons/sprite.svg": "/admin/icons/sprite.svg",
+    "/admin/js/jquery.js": "/admin/js/jquery.js"
 }
