@@ -1,0 +1,38 @@
+.listings {
+
+    &__actions,
+    &__table th,
+    &__table td {
+        @apply border-b border-gray-300
+    }
+
+    &__actions {
+        @apply px-6 py-2;
+    }
+
+    &__ghost-item  {
+        @apply w-10;
+    }
+
+    &__table {
+        @apply table-auto w-full;
+
+        th {
+            @apply uppercase text-xs tracking-wide text-gray-600 bg-gray-200 p-2;
+        }
+
+        td {
+            @apply py-3 px-2;
+        }
+
+        tr {
+            @apply cursor-pointer;
+            
+            &:hover {
+                td {
+                    @apply bg-gray-100;
+                }
+            }
+        }
+    }
+}

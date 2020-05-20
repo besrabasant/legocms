@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8267a88da541d15fc082ef9a25a18523",
+    "content-hash": "940fac4ee001b9aa8936877f30013f3d",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -138,6 +138,58 @@
                 "webprofiler"
             ],
             "time": "2020-02-25T20:42:23+00:00"
+        },
+        {
+            "name": "caffeinated/bonsai",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/bonsai.git",
+                "reference": "e5f911fdc21c57a34a8cb4af217522990dadfec3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/bonsai/zipball/e5f911fdc21c57a34a8cb4af217522990dadfec3",
+                "reference": "e5f911fdc21c57a34a8cb4af217522990dadfec3",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0|^7.0",
+                "php": "^7.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Caffeinated\\Bonsai\\BonsaiServiceProvider"
+                    ],
+                    "aliases": {
+                        "Bonsai": "Caffeinated\\Bonsai\\Facades\\Bonsai"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Bonsai\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Asset management package for the Laravel 5 framework.",
+            "keywords": [
+                "bonsai",
+                "caffeinated",
+                "laravel"
+            ],
+            "time": "2020-04-02T19:38:02+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -4296,6 +4348,7 @@
                     "email": "jakub.onderka@gmail.com"
                 }
             ],
+            "abandoned": "php-parallel-lint/php-console-color",
             "time": "2018-09-29T17:23:10+00:00"
         },
         {
@@ -4342,6 +4395,7 @@
                 }
             ],
             "description": "Highlight PHP code in terminal",
+            "abandoned": "php-parallel-lint/php-console-highlighter",
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
@@ -6638,6 +6692,7 @@
         "nothingworks/blade-svg": 20,
         "lavary/laravel-menu": 20,
         "astrotomic/laravel-translatable": 20,
+        "caffeinated/bonsai": 20,
         "mockery/mockery": 20,
         "codedungeon/phpunit-result-printer": 20,
         "orchestra/testbench-browser-kit": 20

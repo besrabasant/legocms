@@ -1,20 +1,34 @@
 .legocms {
-    @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full bg-gray-200;
-
+    @apply absolute left-0 right-0 top-0 bottom-0 w-full h-full bg-white text-gray-800;
+    @include dotted-bg;
+    
     &__header {
         @apply absolute left-0 right-0 top-0 bg-white shadow;
         height: $appshell-header-height;
+        z-index: 100;
+        @include dotted-bg;
     }
-
+    
     &__navigation {
-        @apply absolute left-0 bottom-0;
+        @apply absolute left-0 bottom-0 bg-white;
+        @include dotted-bg;
         top: $appshell-header-height;
         width: $appshell-navigation-width;
-    }
+        z-index: 50;
 
+        &::after {
+            @apply absolute right-0 bg-gray-300;
+            content: "";
+            width: 1px;
+            top: 20px;
+            bottom: 20px;
+        }
+    }
+    
     &__main {
-        @apply absolute right-0 bottom-0;
+        @apply absolute right-0 bottom-0 p-8;
         top: $appshell-header-height;
         left: $appshell-navigation-width;
+        z-index: 10;
     }
 }

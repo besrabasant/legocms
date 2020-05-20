@@ -595,6 +595,46 @@ video {
   height: auto;
 }
 
+@font-face {
+  font-family: "Ubuntu";
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: url("../fonts/Ubuntu-Light.woff") format("woff"), url("../fonts/Ubuntu-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+
+  font-style: normal;
+
+  font-weight: 400;
+
+  src: url("../fonts/Ubuntu-Regular.woff") format("woff"), url("../fonts/Ubuntu-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  src: url("../fonts/Ubuntu-Medium.woff") format("woff"), url("../fonts/Ubuntu-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Ubuntu";
+
+  font-style: normal;
+
+  font-weight: 700;
+
+  src: url("../fonts/Ubuntu-Bold.woff") format("woff"), url("../fonts/Ubuntu-Bold.woff2") format("woff2");
+}
+
 .legocms {
   position: absolute;
   left: 0;
@@ -603,7 +643,10 @@ video {
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: #edf2f7;
+  background-color: #fff;
+  color: #2d3748;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' version='1.1' viewBox='0 0 13.229 13.229' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(206.38 -163.79)'%3E%3Crect x='-199.89' y='170.01' width='.52917' height='.52917' rx='0' ry='.26458' fill='%23808080' opacity='.99824'/%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
 .legocms__header {
@@ -614,20 +657,93 @@ video {
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   height: 65px;
+  z-index: 100;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' version='1.1' viewBox='0 0 13.229 13.229' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(206.38 -163.79)'%3E%3Crect x='-199.89' y='170.01' width='.52917' height='.52917' rx='0' ry='.26458' fill='%23808080' opacity='.99824'/%3E%3C/g%3E%3C/svg%3E%0A");
 }
 
 .legocms__navigation {
   position: absolute;
   left: 0;
   bottom: 0;
+  background-color: #fff;
+  background-repeat: repeat;
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' version='1.1' viewBox='0 0 13.229 13.229' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(206.38 -163.79)'%3E%3Crect x='-199.89' y='170.01' width='.52917' height='.52917' rx='0' ry='.26458' fill='%23808080' opacity='.99824'/%3E%3C/g%3E%3C/svg%3E%0A");
   top: 65px;
   width: 240px;
+  z-index: 50;
+}
+
+.legocms__navigation::after {
+  position: absolute;
+  right: 0;
+  background-color: #e2e8f0;
+  content: "";
+  width: 1px;
+  top: 20px;
+  bottom: 20px;
 }
 
 .legocms__main {
   position: absolute;
   right: 0;
   bottom: 0;
+  padding: 2rem;
   top: 65px;
   left: 240px;
+  z-index: 10;
+}
+
+.panel {
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  background-color: #fff;
+  border-width: 1px;
+  border-color: #e2e8f0;
+}
+
+.listings__actions, .listings__table th, .listings__table td {
+  border-bottom-width: 1px;
+  border-color: #e2e8f0;
+}
+
+.listings__actions {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.listings__ghost-item {
+  width: 2.5rem;
+}
+
+.listings__table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.listings__table th {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  color: #718096;
+  background-color: #edf2f7;
+  padding: 0.5rem;
+}
+
+.listings__table td {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.listings__table tr {
+  cursor: pointer;
+}
+
+.listings__table tr:hover td {
+  background-color: #f7fafc;
 }

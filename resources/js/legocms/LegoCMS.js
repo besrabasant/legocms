@@ -1,4 +1,5 @@
-import dd from "../utils/dd";
+import Store from "./Store";
+import Vuex from 'vuex';
 
 class LegoCMS {
     constructor()
@@ -9,9 +10,13 @@ class LegoCMS {
         this.$appInstance = null;
     }
 
-    register(componentName, Component)
+    register(componentName, Component = null)
     {
-        this.componentMap.set(componentName, Component);
+        if(componentName instanceof Map) {
+            this.componentMap = new Map([...this.componentMap, ...componentName]);
+        } else {
+            this.componentMap.set(componentName, Component);
+        }
     }
 
     boot()
@@ -20,13 +25,15 @@ class LegoCMS {
         
         document.addEventListener('turbolinks:load', () => {
 
-            let components = {};
-
             this.componentMap.forEach((Component, name) => {
-                components[name] = Component;
+                Vue.component(name, Component);
             });
 
-            this.$appInstance = new Vue({name: "LegoCMS", el: document.getElementById(this.$root), components});
+            this.$appInstance = new Vue({
+                name: "LegoCMS", 
+                el: document.getElementById(this.$root),
+                store: new Vuex.Store(Store)
+            });
         });
         
         this.event().$emit("legocms::booted", this);

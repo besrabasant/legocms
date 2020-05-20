@@ -1,16 +1,19 @@
 <template>
     <div class="legocms">
         <div class="legocms__header">
-            Header
-            <slot name="header"></slot>
+            <slot name="header">
+                Header
+            </slot>
         </div>
         <div class="legocms__navigation">
-            Navigation
-            <slot name="navigation"></slot>
+            <slot name="navigation">
+                Navigation
+            </slot>
         </div>
         <div class="legocms__main">
-            Main
-            <slot></slot>
+            <slot>
+                Main
+            </slot>
         </div>
     </div>
 </template>
