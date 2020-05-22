@@ -595,6 +595,51 @@ video {
   height: auto;
 }
 
+.symbol--check {
+  width: 32px;
+  height: 32px;
+}
+
+.symbol--create {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--error {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--expand {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--info {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--legocms {
+  width: 100px;
+  height: 23px;
+}
+
+.symbol--warning {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--listings-edit {
+  width: 24px;
+  height: 24px;
+}
+
+.symbol--listings-view {
+  width: 24px;
+  height: 24px;
+}
+
 @font-face {
   font-family: "Ubuntu";
 
@@ -633,6 +678,20 @@ video {
   font-weight: 700;
 
   src: url("../fonts/Ubuntu-Bold.woff") format("woff"), url("../fonts/Ubuntu-Bold.woff2") format("woff2");
+}
+
+.placeholder {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5e0;
+}
+
+.symbol {
+  fill: currentColor;
 }
 
 .legocms {
@@ -695,15 +754,15 @@ video {
 }
 
 .panel {
-  border-radius: 0.25rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   width: 100%;
   background-color: #fff;
   border-width: 1px;
   border-color: #e2e8f0;
 }
 
-.listings__actions, .listings__table th, .listings__table td {
+.listings__actions, .listings__table tr {
   border-bottom-width: 1px;
   border-color: #e2e8f0;
 }
@@ -715,8 +774,8 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.listings__ghost-item {
-  width: 2.5rem;
+.listings__ghost-cell {
+  width: 3rem;
 }
 
 .listings__table {
@@ -724,26 +783,52 @@ video {
   width: 100%;
 }
 
-.listings__table th {
+.listings__table thead {
+  background-color: #edf2f7;
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 0.025em;
   color: #718096;
-  background-color: #edf2f7;
+  text-align: left;
+}
+
+.listings__table thead th {
   padding: 0.5rem;
 }
 
-.listings__table td {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+.listings__table tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+.listings__table tbody td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
-.listings__table tr {
+.listings__pagination {
+  padding: 0.5rem;
+  background-color: #f7fafc;
+}
+
+.listings__col-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.listings__row-actions {
+  display: flex;
+  align-items: center;
+  color: #a0aec0;
+}
+
+.listings__row-actions span {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   cursor: pointer;
 }
 
-.listings__table tr:hover td {
-  background-color: #f7fafc;
+.listings__row-actions span:hover {
+  color: #718096;
 }

@@ -7,8 +7,12 @@
 @import "legocms/variables";
 @import "legocms/mixins";
 
+@import "generated/symbols-common";
+@import "generated/symbols-listings";
+
 @import "legocms/fonts";
 
+@import "legocms/global";
 @import "legocms/appshell/appshell";
 @import "legocms/panel/panel";
 @import "legocms/listings/listings";

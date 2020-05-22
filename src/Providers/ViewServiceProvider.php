@@ -72,7 +72,7 @@ class ViewServiceProvider extends ServiceProvider
     private function registerBladeSvg()
     {
         \config(['blade-svg.svg_path' => 'resources/icons']);
-        \config(['blade-svg.spritesheet_path' => 'public/assets/admin/icons/sprite.svg']);
+        \config(['blade-svg.spritesheet_path' => 'public/assets/admin/icons/sprite-common.svg']);
         \config(['blade-svg.sprite_prefix' => 'symbol--']);
         \config(['blade-svg.class' => 'symbol']);
         \config(['blade-svg.inline' => false]);

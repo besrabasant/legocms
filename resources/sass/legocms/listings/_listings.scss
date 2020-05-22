@@ -1,38 +1,57 @@
 .listings {
+  &__actions,
+  &__table tr {
+    @apply border-b border-gray-300;
+  }
 
-    &__actions,
-    &__table th,
-    &__table td {
-        @apply border-b border-gray-300
+  &__actions {
+    @apply px-6 py-2;
+  }
+
+  &__ghost-cell {
+    @apply w-12;
+  }
+
+  &__table {
+    @apply table-auto w-full;
+
+    thead {
+      @apply bg-gray-200 uppercase text-xs tracking-wide text-gray-600 text-left;
+
+      th {
+        @apply p-2;
+      }
     }
 
-    &__actions {
-        @apply px-6 py-2;
-    }
-
-    &__ghost-item  {
-        @apply w-10;
-    }
-
-    &__table {
-        @apply table-auto w-full;
-
-        th {
-            @apply uppercase text-xs tracking-wide text-gray-600 bg-gray-200 p-2;
+    tbody {
+      tr {
+        &:hover {
+          @apply bg-gray-100;
         }
+      }
 
-        td {
-            @apply py-3 px-2;
-        }
-
-        tr {
-            @apply cursor-pointer;
-            
-            &:hover {
-                td {
-                    @apply bg-gray-100;
-                }
-            }
-        }
+      td {
+        @apply py-4 px-2;
+      }
     }
+  }
+
+  &__pagination {
+    @apply p-2 bg-gray-100;
+  }
+
+  &__col-actions {
+      @apply flex justify-end;
+  }
+
+  &__row-actions {
+    @apply flex items-center text-gray-500;
+    span {
+      @apply px-2 cursor-pointer;
+
+      &:hover {
+        @apply text-gray-600;
+      }
+    }
+  }
 }

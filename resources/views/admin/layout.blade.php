@@ -38,7 +38,8 @@
 </head>
 
 <body class="app-env--{{app()->environment()}}">
-    {{ \svg_spritesheet() }}
+    {{ \LegoCMS\Support\SvgSpritesheet::include('public/assets/admin/icons/sprite-common.svg') }}
+    {{ \LegoCMS\Support\SvgSpritesheet::include('public/assets/admin/icons/sprite-listings.svg') }}
     <div id="__LEGOCMS__">
         {!! $content !!}
     </div>

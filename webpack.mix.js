@@ -18,7 +18,17 @@ mix.webpackConfig((webpack) => {
 
 mix.setPublicPath("public/assets");
 
-mix.svgSprite("resources/icons", "admin/icons/sprite.svg");
+mix.svgSprite({
+  iconPath: "resources/icons/common",
+  stylesPath: 'resources/sass/generated/_symbols-common.scss',
+  spriteFilename: "admin/icons/sprite-common.svg"
+});
+
+mix.svgSprite({
+  iconPath: "resources/icons/listings",
+  stylesPath: 'resources/sass/generated/_symbols-listings.scss',
+  spriteFilename: "admin/icons/sprite-listings.svg"
+});
 
 mix
   .js("resources/js/legocms-admin-2.js", "admin/js")
