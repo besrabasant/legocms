@@ -7,7 +7,7 @@ use LegoCMS\Core\Component;
 
 class Form extends Component
 {
-    /** @var string Name of the component */
+    /** @var string Name of the Form */
     protected $name;
 
     /** @var \LegoCMS\Core\Module Module to which component refers to. */

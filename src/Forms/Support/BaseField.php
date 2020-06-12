@@ -133,6 +133,26 @@ abstract class BaseField extends Component
     }
 
     /**
+     * getName
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * getProperty
+     *
+     * @return string
+     */
+    public function getProperty()
+    {
+        return $this->property;
+    }
+
+    /**
      * setValue
      *
      * @param  mixed $value
@@ -192,5 +212,15 @@ abstract class BaseField extends Component
     protected function resolvePropertyFromName(): string
     {
         return \str_replace(" ", "_", Str::lower($this->name));
+    }
+
+    /**
+     * isPrimaryField
+     *
+     * @return bool
+     */
+    public function isPrimaryField()
+    {
+        return false;
     }
 }

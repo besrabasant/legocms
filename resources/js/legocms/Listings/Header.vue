@@ -1,5 +1,5 @@
 <template>
-    <th>
+    <th v-if="!primary">
         <slot></slot>
     </th>
 </template>
@@ -11,6 +11,10 @@ export default {
         column: {
             type: String,
             required: true
+        },
+        primary: {
+            type: Boolean,
+            default: false
         }
     }
 }

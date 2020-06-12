@@ -57,6 +57,28 @@ class Listings extends Component
         return $this;
     }
 
+    /**
+     * setHeaders
+     *
+     * @param \LegoCMS\Listings\Support\ListingsHeaders $headers
+     *
+     * @return void
+     */
+    public function setHeaders($headers)
+    {
+        $headers->each(function ($header) {
+            $this->setSlot($header, 'header');
+        });
+    }
+
+    public function setActions()
+    {
+    }
+
+    public function setListingsData()
+    {
+    }
+
     protected function prepareVueAttributes(): array
     {
         return [

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "940fac4ee001b9aa8936877f30013f3d",
+    "content-hash": "2db886d9e6ebfa4cffd0a214a99c2d44",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -5411,6 +5411,48 @@
             "time": "2020-03-05T15:02:03+00:00"
         },
         {
+            "name": "phpstan/phpstan",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "59352dd6cf2b91b4ccf8bf63144d01b7c9c8f501"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/59352dd6cf2b91b4ccf8bf63144d01b7c9c8f501",
+                "reference": "59352dd6cf2b91b4ccf8bf63144d01b7c9c8f501",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "time": "2020-06-05T13:35:29+00:00"
+        },
+        {
             "name": "phpunit/php-code-coverage",
             "version": "dev-master",
             "source": {
@@ -6695,7 +6737,8 @@
         "caffeinated/bonsai": 20,
         "mockery/mockery": 20,
         "codedungeon/phpunit-result-printer": 20,
-        "orchestra/testbench-browser-kit": 20
+        "orchestra/testbench-browser-kit": 20,
+        "phpstan/phpstan": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

@@ -6,18 +6,23 @@ use LegoCMS\Core\Module;
 
 abstract class ViewBuilder
 {
+    /** @var \LegoCMS\Core\Module */
     protected $module;
 
     /** @var \Illuminate\Foundation\Application */
     protected $app;
-
-    protected $result = "";
 
     private function __construct()
     {
         $this->app = \app();
     }
 
+    /**
+     * make
+     *
+     * @param  mixed $module
+     * @return void
+     */
     public static function make(Module $module)
     {
         $instance =  new static;
@@ -35,8 +40,5 @@ abstract class ViewBuilder
 
     abstract public function build(): void;
 
-    public function result()
-    {
-        return $this->result;
-    }
+    abstract public function renderable();
 }

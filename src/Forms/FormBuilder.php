@@ -7,8 +7,6 @@ use LegoCMS\Forms\FormFields;
 
 class FormBuilder extends ViewBuilder
 {
-    protected $form;
-
     protected $action;
 
     public function forAction($action)
@@ -39,7 +37,7 @@ class FormBuilder extends ViewBuilder
             );
     }
 
-    public function form(): Form
+    public function renderable()
     {
         return $this->form;
     }

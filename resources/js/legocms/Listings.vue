@@ -9,7 +9,9 @@
           <tr>
             <th class="listings__ghost-cell"></th>
             <slot name="header">
-              <legocms-listings-header column="name">Name</legocms-listings-header>
+              <legocms-listings-header column="name"
+                >Name</legocms-listings-header
+              >
             </slot>
             <th class="listings__col-actions"></th>
           </tr>

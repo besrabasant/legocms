@@ -29,4 +29,14 @@ class ID extends BaseField
         return tap(static::make("ID"))
             ->setValue($model->{$model->getKeyName()});
     }
+
+    /**
+     * isPrimaryField
+     *
+     * @return bool
+     */
+    public function isPrimaryField()
+    {
+        return true;
+    }
 }

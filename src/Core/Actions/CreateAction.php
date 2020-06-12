@@ -3,8 +3,9 @@
 namespace LegoCMS\Core\Actions;
 
 use LegoCMS\Core\Action;
+use LegoCMS\Core\Contracts\CreateAction as CreateActionContract;
 
-class CreateAction extends Action
+class CreateAction extends Action implements CreateActionContract
 {
     protected $name = "create";
 

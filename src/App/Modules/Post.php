@@ -6,6 +6,7 @@ use LegoCMS\Core\Module;
 use LegoCMS\Forms\Fields\ID;
 use \Illuminate\Http\Request;
 use LegoCMS\App\Support\Behaviors\OverridesLegoSetName;
+use LegoCMS\Forms\Fields\TextField;
 
 class Post extends Module
 {
@@ -15,6 +16,7 @@ class Post extends Module
     {
         return [
             ID::make(),
+            TextField::make("Title"),
         ];
     }
 }

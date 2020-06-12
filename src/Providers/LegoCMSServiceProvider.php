@@ -187,7 +187,9 @@ class LegoCMSServiceProvider extends LegoAppServiceProvider
             ]]
         );
 
-        \config(['debugbar.enabled' => \config("app.debug")]);
+        \config([
+            'debugbar.enabled' => false //\config("app.debug", false)
+        ]);
 
         $this->publishes(
             [
