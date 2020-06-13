@@ -3,7 +3,7 @@
 namespace LegoCMS\App\Modules;
 
 use LegoCMS\Core\Module;
-use LegoCMS\Forms\Fields\ID;
+use LegoCMS\Fields\ID;
 use \Illuminate\Http\Request;
 
 class User extends Module

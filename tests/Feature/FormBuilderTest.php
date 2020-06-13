@@ -26,6 +26,7 @@ class FormBuilderTest extends TestCase
     {
         $module = Article::make();
 
+        /** @var FormBuilder */
         $instance = FormBuilder::make($module);
 
         $instance->forAction(StoreAction::make($module))
@@ -38,7 +39,7 @@ class FormBuilderTest extends TestCase
 
         $this->assertEquals(
             $expected,
-            $instance->form()->render()->toHtml()
+            $instance->renderable()->render()->toHtml()
         );
     }
 }

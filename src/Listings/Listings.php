@@ -75,8 +75,11 @@ class Listings extends Component
     {
     }
 
-    public function setListingsData()
+    public function setListingsData($dataRows)
     {
+        $dataRows->each(function ($row) {
+            $this->setSlot($row);
+        });
     }
 
     protected function prepareVueAttributes(): array

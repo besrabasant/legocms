@@ -1,8 +1,8 @@
 <?php
 
-namespace LegoCMS\Forms\Fields;
+namespace LegoCMS\Fields;
 
-use LegoCMS\Forms\Support\BaseField;
+use LegoCMS\Fields\Support\BaseField;
 
 class ID extends BaseField
 {

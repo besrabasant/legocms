@@ -5,7 +5,7 @@ namespace LegoCMS\Tests\Unit\Forms;
 use DemoSet1\Modules\Article;
 use Illuminate\Support\Facades\Session;
 use LegoCMS\Core\Actions\UpdateAction;
-use LegoCMS\Forms\Fields\ID;
+use LegoCMS\Fields\ID;
 use LegoCMS\Tests\Unit\TestCase;
 use LegoCMS\Forms\Form;
 use LegoCMS\Forms\FormFields;
@@ -73,8 +73,8 @@ class FormComponentTest extends TestCase
             ID::make()
         ]));
 
-        $expected = '<legocms-form name="form" method="POST" action-url="/demo-module" token="csrf_token">' . PHP_EOL .
-            "\t" . '<id-field value=""></id-field>' . PHP_EOL .
+        $expected = '<legocms-form name="form" method="POST" action-url="/demo-module" token="csrf_token">' .
+            '<id-field value=""></id-field>' .
             '</legocms-form>';
 
         $this->assertEquals(

@@ -12,6 +12,11 @@ class ListingsRow extends Component
 
     protected $rowData;
 
+    public function __construct($rowData)
+    {
+        $this->rowData = $rowData;
+    }
+
     public function setRowKeys(array $rowKeys)
     {
         $this->rowKeys = $rowKeys;
@@ -24,6 +29,6 @@ class ListingsRow extends Component
 
     protected function prepareVueAttributes(): array
     {
-        return [];
+        return $this->rowData;
     }
 }

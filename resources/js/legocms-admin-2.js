@@ -1,3 +1,4 @@
+
 import Turbolinks from 'turbolinks';
 import Vue from "vue";
 import Vuex from 'vuex';

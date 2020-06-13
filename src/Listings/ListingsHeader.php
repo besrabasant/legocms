@@ -3,7 +3,7 @@
 namespace LegoCMS\Listings;
 
 use LegoCMS\Core\Component;
-use LegoCMS\Forms\Support\BaseField;
+use LegoCMS\Fields\Support\BaseField;
 
 class ListingsHeader extends Component
 {
@@ -33,6 +33,32 @@ class ListingsHeader extends Component
         return $instance;
     }
 
+    /**
+     * getColumnKey
+     *
+     * @return string
+     */
+    public function getColumnKey()
+    {
+        return $this->columnKey;
+    }
+
+    /**
+     * getColumnName
+     *
+     * @return string
+     */
+    public function getColumnName()
+    {
+        return $this->columnName;
+    }
+
+    /**
+     * setPrimary(): Sets header as listings primary key.
+     *
+     * @param  bool $value
+     * @return void
+     */
     public function setPrimary(bool $value)
     {
         $this->primary = $value;

@@ -1,3 +1,7 @@
+import Listings from "./Listings/Store"
+
 export default {
-    state: {}
+    modules: {
+        Listings
+    }
 };

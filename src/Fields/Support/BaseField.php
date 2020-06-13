@@ -1,6 +1,6 @@
 <?php
 
-namespace LegoCMS\Forms\Support;
+namespace LegoCMS\Fields\Support;
 
 use Closure;
 use Illuminate\Support\Str;

@@ -18,9 +18,7 @@ class CreateLegocmsPostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            DefaultTableColumns::publishableDates(true)
-                ->apply($table);
-
+            $table->bigIncrements('id');
             $table->string("title");
             $table->text("description");
             $table->longText("content");

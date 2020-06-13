@@ -3,7 +3,7 @@
 namespace LegoCMS\Tests\Unit\Fields;
 
 use LegoCMS\Tests\Unit\TestCase;
-use LegoCMS\Forms\Fields\TextField;
+use LegoCMS\Fields\TextField;
 
 class TextFieldTest extends TestCase
 {

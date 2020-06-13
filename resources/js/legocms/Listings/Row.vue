@@ -1,7 +1,7 @@
 <template>
     <tr>
         <td class="listings__ghost-cell"></td>
-        <td v-for="(item, key) in rowItems" :key="key">
+        <td v-for="[key, item] in rowItems" :key="key">
             {{item}}
         </td>
         <td class="listings__col-actions">
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import RowActions from "./RowActions";
 
 export default {
@@ -22,8 +23,13 @@ export default {
     props: {},
     computed: {
         rowItems() {
-            return this.$attrs
-        }
+            return Object.entries(this.$attrs)
+            .filter(([column, value]) => column != this.primaryColumn)
+        },
+        ...mapGetters('Listings', [
+            'columns',
+            'primaryColumn'
+        ])
     },
 }
 </script>

@@ -5,7 +5,7 @@ namespace LegoCMS\Tests\Unit\Fields;
 use DemoSet1\Models\Article;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use LegoCMS\Tests\Unit\TestCase;
-use LegoCMS\Forms\Fields\ID;
+use LegoCMS\Fields\ID;
 
 class IDFieldTest extends TestCase
 {

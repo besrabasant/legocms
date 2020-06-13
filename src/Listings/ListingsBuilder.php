@@ -17,16 +17,29 @@ class ListingsBuilder extends ViewBuilder
             $this->module
         );
 
-        dd($this->module->getModelInstance());
+        $listingsHeaders = ListingsHeaders::make($this->module->fields($this->app['request']));
 
-        $this->listings->setHeaders(
-            ListingsHeaders::make($this->module->fields($this->app['request']))
+        $this->listings->setHeaders($listingsHeaders);
+
+        $this->listings->setListingsData(
+            $this->getListingsData($listingsHeaders->getColumns())
         );
     }
 
     public function getListingsName(): string
     {
         return $this->module->getModuleNamePlural() . "-listings";
+    }
+
+    public function getListingsData($columns)
+    {
+        return $this->module->getModelQueryInstance()->get()->map(function ($item) use ($columns) {
+            $rowdata = [];
+            foreach ($columns as $column) {
+                $rowdata[$column] = $item->{$column};
+            }
+            return new ListingsRow($rowdata);
+        });
     }
 
     public function renderable()

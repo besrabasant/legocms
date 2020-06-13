@@ -51,7 +51,7 @@ class ModuleTest extends TestCase
     public function test_module_controller_name()
     {
         $this->assertEquals(
-            "DemoSet1\\Admin\\Http\\Controllers\\ArticleController",
+            "DemoSet1\\Http\\Controllers\\ArticleController",
             $this->module->getController()
         );
     }
